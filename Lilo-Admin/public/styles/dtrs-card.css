@@ -1,0 +1,102 @@
+
+
+/* CSS for modal */
+.img-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.img-modal.show {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+}
+.img-modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1001;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+.img-modal.show .img-modal-content {
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 1;
+}
+
+.img-close {
+    position: absolute;
+    top: -230px;
+    right: -220px;
+    font-size: 35px;
+    font-weight: bold;
+    color: #433554;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.img-close:hover,
+.img-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* CSS for modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+.modal.active {
+    opacity: 1; /* Fully visible */
+    pointer-events: all; /* Enable interactions */
+    transform: scale(1); /* Full size */
+}
+.modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8); /* Start smaller */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    z-index: 1001;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+#mapModal {
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+}
+#mapModal.active .modal-content {
+    /* transform: translate(-50%, -50%) scale(1); Full size */
+    opacity: 1; /* Fully visible */
+}
+#modalMap {
+    width: 100%;
+    height: 500px;
+}
+

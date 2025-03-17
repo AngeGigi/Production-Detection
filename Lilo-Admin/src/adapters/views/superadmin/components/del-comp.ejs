@@ -1,0 +1,27 @@
+<div class="modal fade" id="deleteCompModal" tabindex="-1" aria-labelledby="deleteCompModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title text-white" id="deleteCompModalLabel">Remove Company</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <div class="mb-3">
+                    <p>Are you sure you want to delete the company <strong id="delName"></strong>?</p>
+                </div>
+                <div class="mb-3">
+                    <p>Company Code: <strong id="delcompCode"></strong></p>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="delConfirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>

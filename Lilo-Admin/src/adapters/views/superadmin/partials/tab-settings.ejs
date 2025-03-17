@@ -1,0 +1,10 @@
+<div class="tab-pane fade <%= active ? 'show active' : 'd-none' %>" id="<%= id %>" role="tabpanel" aria-labelledby="<%= id %>-tab">
+    <div class="card shadow-lg">
+        <div class="card-body d-flex justify-content-center align-items-between" style="height: fit-content;">
+            <div class="w-50">
+                <h3 class="text-center mb-4"><%= title %></h3>
+                <%- include('../contents/settings/' + content) %>
+            </div>
+        </div>
+    </div>
+</div>

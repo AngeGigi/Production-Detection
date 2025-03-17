@@ -1,0 +1,10 @@
+.background-slideshow {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 1.5s ease-in-out; /* Smooth fade transition */
+}
+
+.hover-underline:hover {
+    text-decoration: underline !important;
+}

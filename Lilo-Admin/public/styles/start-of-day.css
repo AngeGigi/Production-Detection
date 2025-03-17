@@ -1,0 +1,125 @@
+
+
+.sod-container {
+    height: 89vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.flex-container,
+.not-flex-container {
+    display: flex; /* Enable flexbox layout */
+    justify-content: space-between; /* Space out children */
+    column-gap: 20px;
+    align-items: flex-start; /* Align items to the top */
+    flex: 1;
+    padding: 20px 50px 0 0;
+}
+
+.startmap-section,
+.notmap-section {
+    flex: 1;
+    height: 100%; /* Ensure consistent height for the map */
+    padding: 10px;
+}
+
+.table-section,
+.not-yet-loggedin-container {
+    flex: 3;
+    overflow-x: hidden; /* Enable horizontal scrolling if needed */
+    height: 100%;
+}
+
+.custom-icon-wrapper {
+    position: relative;
+    display: inline-block; /* Makes the container fit content size */
+}
+
+.custom-icon {
+    position: relative;
+    width: 50px; /* Adjust to match icon size */
+    height: 50px; /* Adjust to match icon size */
+    border: 3px solid #bc1823; /* Border color */
+    border-radius: 50%; /* Makes the icon circular */
+    background-color: white; /* Background color inside border */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure image doesn't overflow */
+}
+
+.custom-icon img {
+    width: 100%; /* Fill the container */
+    height: 100%; /* Fill the container */
+    object-fit: cover; /* Ensures the image scales properly */
+    object-position: center center; /* Centers the image for landscape or portrait */
+}
+
+.custom-triangle {
+    position: absolute;
+    bottom: 15px; /* Position it below the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 13px solid #bc1823; /* Triangle color, same as border color */
+}
+
+
+.sod-top-table {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    column-gap: 20px;
+}
+.table-img {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.table-img img {
+    width: 100px;
+    object-fit: cover;
+}
+
+.sod-date {
+    margin-top: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.sod-summary {
+    margin-top: 20px;
+    width: 250px;
+    text-align: center;
+}
+
+/* .scrollable-address {
+    height: 5em; 
+    overflow-y: hidden; 
+    overflow-x: auto; 
+    white-space: nowrap; 
+} */
+
+.sod-table-container {
+    height: 200px;
+    overflow-y: auto; /* Enable scrolling if the content overflows */
+    overflow-x: hidden;
+    flex: 1;
+    max-width: 100%;
+}
+
+.sod-container-filter {
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    padding: 10px 20px;
+    justify-content: space-between;
+}

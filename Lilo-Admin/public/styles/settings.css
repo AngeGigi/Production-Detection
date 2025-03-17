@@ -1,0 +1,67 @@
+/* Modal base styling */
+.page-custom-modal,
+.log-config-modal,
+.ext-user-modal,
+.location-modal,
+.logs-display-modal,
+.report-settings-modal,
+.lilo-mode-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1501;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    width: 650px; /* Set your desired fixed width */
+    max-width: 100%; /* Ensure it doesn't exceed screen width */
+}
+
+/* When modal is visible */
+.page-custom-modal.show,
+.log-config-modal.show,
+.ext-user-modal.show,
+.location-modal.show,
+.logs-display-modal.show,
+.report-settings-modal.show,
+.lilo-mode-modal.show {
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    z-index: 1501;
+}
+
+/* Overlay background styling */
+.page-custom-overlay,
+.log-config-overlay,
+.ext-user-overlay,
+.location-overlay,
+.logs-display-overlay,
+.report-settings-overlay,
+.lilo-mode-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1501;
+    display: none;
+}
+
+/* When overlay is visible */
+.page-custom-overlay.show,
+.log-config-overlay.show,
+.ext-user-overlay.show,
+.location-overlay.show,
+.logs-display-overlay.show,
+.report-settings-overlay.show,
+.lilo-mode-overlay.show {
+    display: block;
+    opacity: 1;
+}

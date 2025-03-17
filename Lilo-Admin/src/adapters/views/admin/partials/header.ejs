@@ -1,0 +1,134 @@
+<% if (title==='Employees' && currentView==='card' ) { %>
+    <div class="w-50" id="employeesSearchBox"></div>
+    <button type="button"
+        class="card-btn-box-fill d-flex justify-content-center align-items-center btn btn-outline-secondary border-0 position-relative custom-tooltip"
+        data-tooltip="Card View">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#433554" class="bi bi-grid-fill"
+            viewBox="0 0 16 16">
+            <path
+                d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5z" />
+        </svg>
+    </button>
+
+    <button type="button"
+        class="list-btn-box-grid d-flex justify-content-center align-items-center btn btn-outline-secondary border-0 position-relative custom-tooltip"
+        data-tooltip="List View">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#433554" class="bi bi-hdd-stack"
+            viewBox="0 0 16 16">
+            <path
+                d="M14 10a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1zM2 9a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2z" />
+            <path
+                d="M5 11.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0M14 3a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM2 2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z" />
+            <path d="M5 4.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0" />
+        </svg>
+    </button>
+    <% } else if (title==='Employees' && currentView==='list' ) { %>
+        <div class="search-area-list position-relative w-50" id="searchList"></div>
+        <button type="button"
+            class="card-btn-box-grid d-flex justify-content-center align-items-center btn btn-outline-secondary border-0 position-relative custom-tooltip"
+            data-tooltip="Card View">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#433554" class="bi bi-grid"
+                viewBox="0 0 16 16">
+                <path
+                    d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z" />
+            </svg>
+        </button>
+
+        <button type="button"
+            class="list-btn-box-fill d-flex justify-content-center align-items-center btn btn-outline-secondary border-0 position-relative custom-tooltip"
+            data-tooltip="List View">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#433554"
+                class="bi bi-hdd-stack-fill" viewBox="0 0 16 16">
+                <path
+                    d="M2 9a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2zm.5 3a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m2 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1M2 2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm.5 3a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m2 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1" />
+            </svg>
+        </button>
+        <% } else if (title==='DTRS' && currentView==='card' ) { %>
+            <div class="w-50" id="DTRSsearchCard"></div>
+            <button type="button"
+                class="card-btn-box-fill d-flex justify-content-center align-items-center btn btn-outline-secondary border-0 position-relative custom-tooltip"
+                data-tooltip="Card View">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#433554"
+                    class="bi bi-grid-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5z" />
+                </svg>
+            </button>
+
+            <button type="button"
+                class="list-btn-box-grid d-flex justify-content-center align-items-center btn btn-outline-secondary border-0 position-relative custom-tooltip"
+                data-tooltip="List View">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#433554"
+                    class="bi bi-hdd-stack" viewBox="0 0 16 16">
+                    <path
+                        d="M14 10a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1zM2 9a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2z" />
+                    <path
+                        d="M5 11.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0M14 3a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM2 2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z" />
+                    <path d="M5 4.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0" />
+                </svg>
+            </button>
+            <% } else if (title==='DTRS' && currentView==='list' ) { %>
+                <div class="dtrs-search-area-list position-relative w-50" id="DTRSsearchList"></div>
+                <button type="button"
+                    class="card-btn-box-grid d-flex justify-content-center align-items-center btn btn-outline-secondary border-0 position-relative custom-tooltip"
+                    data-tooltip="Card View">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#433554"
+                        class="bi bi-grid" viewBox="0 0 16 16">
+                        <path
+                            d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z" />
+                    </svg>
+                </button>
+
+                <button type="button"
+                    class="list-btn-box-fill d-flex justify-content-center align-items-center btn btn-outline-secondary border-0 position-relative custom-tooltip"
+                    data-tooltip="List View">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#433554"
+                        class="bi bi-hdd-stack-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M2 9a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2zm.5 3a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m2 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1M2 2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm.5 3a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m2 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1" />
+                    </svg>
+                </button>
+                <% } else if (title==='Rejected Logs' ) { %>
+                    <div class="rejlog-search-area-list w-50" id="DTRSsearchList"></div>
+                    <% } else if (title==='Start of Day' ) { %>
+                        <div class="sod-dropdown filter-cards d-flex" id="filterCard">
+                            <label for="cardSortCriteria" class="me-2 d-flex align-items-center">Sort:</label>
+                            <select id="departmentDropdown" class="form-select w-auto">
+                                <option value="all" selected>All</option>
+                                <% departments.forEach(department=> { %>
+                                    <option value="<%= department %>">
+                                        <%= department %>
+                                    </option>
+                                    <% }); %>
+                            </select>
+                        </div>
+                        <% } else if (title==='End of Day' ) { %>
+                            <div class="eod-dropdown filter-cards d-flex" id="eodDropdown">
+                                <label for="cardSortCriteria"
+                                    class="me-2 d-flex align-items-center">Sort:</label>
+                                <% if (departments && departments.length> 0) { %>
+                                    <select id="departmentDropdown" class="form-select w-auto">
+                                        <option value="all" selected>All</option>
+                                        <% departments.forEach(department=> { %>
+                                            <option value="<%= department %>">
+                                                <%= department %>
+                                            </option>
+                                            <% }); %>
+                                    </select>
+                                    <% } %>
+                            </div>
+                            <div id="eodDateFilter"
+                                class="d-flex justify-content-center align-items-center gap-2 py-1 px-2 bg-white rounded-2 shadow-sm">
+                                <input type="date" id="dateFilter" class="form-control form-control-sm"
+                                    style="width: 150px" />
+                                <button id="filterButton" class="btn btn-primary btn-sm">Filter</button>
+                                <button id="clearButton" class="btn btn-danger btn-sm">Clear</button>
+                            </div>
+                            <div class="end-of-day-title d-flex justify-content-center align-items-center flex-shrink-0"
+                                style="height: 25px">
+                                <p id="currentDate"><strong>
+                                        <%= new Date().toLocaleString('default', { month: 'long' }) + ' ' + new
+                                            Date().getDate() + ', ' + new Date().getFullYear() %>
+                                    </strong></p>
+                            </div>
+                            <% } %>

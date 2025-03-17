@@ -1,0 +1,15 @@
+<!-- <div class="dashboard row col-12 col-xl-11 col-xxl-12 d-flex justify-content-center"> -->
+<div class="dashboard row col-12 d-flex justify-content-center">
+    <%- include('../contents/dashboard/analytics.ejs') %>
+
+        <div class="dashboard-second-row w-100 mt-2 row d-flex">
+            <!-- Recently Created Users Card -->
+            <div class="col-12 col-lg-4 col-xl-3 d-flex pb-3 pb-lg-0 pe-lg-3">
+                <%- include('../contents/dashboard/recent-created.ejs') %>
+            </div>
+
+            <div class="col-12 col-lg-8 col-xl-9">
+                <%- include('../contents/dashboard/comp-expire.ejs') %>
+            </div>
+        </div>
+</div>

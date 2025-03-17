@@ -1,0 +1,17 @@
+<div class="rejlog-display-no-list  d-flex" id="filterList">
+    <!-- <select> form-select w-auto -->
+</div>
+
+<div class="d-flex justify-content-center align-items-center gap-2 py-1 px-2 bg-white rounded-2 shadow-sm" >
+    <label for="rejlogsdateFrom" class="fw-bold text-dark" style="font-size: 14px; width: 80px">Date From:</label>
+    <input type="date" id="rejlogsdateFrom" class="form-control form-control-sm" style="width: 150px"/>
+    <label for="rejlogsdateTo" class="fw-bold text-dark" style="font-size: 14px; width: 65px">Date To:</label>
+    <input type="date" id="rejlogsdateTo" class="form-control form-control-sm" style="width: 150px"/>
+    <button id="rejlogsfilterBtn" class="btn btn-primary btn-sm">Filter</button>
+    <button id="rejlogsclearBtn" class="btn btn-danger btn-sm">Clear</button>
+</div>
+
+<button id="export-rejected" class="btn btn-outline-primary" style="margin-left: 20px">
+    <i class="fa-solid fa-file-arrow-down"></i> 
+    Export to CSV
+</button>

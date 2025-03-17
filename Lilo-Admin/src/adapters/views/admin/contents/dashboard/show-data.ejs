@@ -1,0 +1,30 @@
+<div class="mb-3">
+    <!-- Tab buttons (they control the active tab) -->
+    <button id="showDaily" class="btn btn-primary active" data-bs-toggle="tab" data-bs-target="#dailyDataContainer">Show Daily Data</button>
+    <button id="showWeekly" class="btn btn-secondary" data-bs-toggle="tab" data-bs-target="#weeklyDataContainer">Show Weekly Data</button>
+</div>
+
+<!-- Tab content -->
+<div class="tab-content">
+    <!-- Daily Data Table (Default visible) -->
+    <div id="dailyDataContainer" class="tab-pane fade show active" role="tabpanel">
+        <div class="row w-100 d-flex">
+            <div class="card bg-white border-0 shadow-sm">
+                <div class="card-body">
+                    <%- include('./tables/daily-login-time.ejs') %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Weekly Data Table (Initially hidden) -->
+    <div id="weeklyDataContainer" class="tab-pane fade" role="tabpanel">
+        <div class="row w-100 d-flex">
+            <div class="card bg-white border-0 shadow-sm">
+                <div class="card-body">
+                    <%- include('./tables/weekly-login-count.ejs') %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

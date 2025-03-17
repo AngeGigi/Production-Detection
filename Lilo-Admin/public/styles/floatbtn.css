@@ -1,0 +1,203 @@
+/* Container for the floating action button and its options */
+.hover-container {
+    position: relative; /* Position context for the button */
+    display: inline-block; /* Fit around the button */
+}
+.floatbox {
+    position: fixed;
+    bottom: 80px;
+    right: 30px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.reg-btn svg {
+    /* transform: scale(2.5);
+    color: #433554; */
+    transition: color 0.3s ease;
+}
+
+/* Main floating button */
+.reg-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    margin-top: 10px;
+}
+.reg-btn svg:hover {
+    color: #0056b3;
+}
+
+/* Hidden by default */
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none; /* Prevent interaction when hidden */
+    transition: all 0.4s ease;
+}
+
+/* Individual option buttons */
+.options svg {
+    transform: scale(2);
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+.batch,
+.single {
+    margin-bottom: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #433554;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #333;
+    cursor: pointer;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px); /* Initially move buttons down */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.batch:hover,
+.single:hover {
+    background-color: #0056b3;
+}
+
+/* Show options on hover */
+.floatbox:hover .options {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.floatbox:hover .batch,
+.single {
+    opacity: 1;
+    transform: translateY(0); /* Move buttons to their final position */
+}
+
+.reg-btn,
+.batch,
+.single {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+.reg-btn .tooltip,
+.batch .tooltip,
+.single .tooltip {
+    font-family: Roboto, Arial;
+    position: absolute;
+    background-color: #43355469;
+    color: rgb(255, 255, 255);
+    padding: 4px 8px;
+    border-radius: 2px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.15s;
+    pointer-events: none;
+    white-space: nowrap;
+}
+.reg-btn .tooltip {
+    right: 30px;
+}
+.batch .tooltip,
+.single .tooltip {
+    right: 45px;
+}
+
+.reg-btn:hover .tooltip,
+.batch:hover .tooltip,
+.single:hover .tooltip {
+    opacity: 1;
+}
+
+/* Modal base styling */
+.new-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1001;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* When modal is visible */
+.new-modal.show {
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* Overlay background styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    display: none;
+}
+
+/* When overlay is visible */
+.modal-overlay.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Modal base styling */
+.batch-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1001;
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* When modal is visible */
+.batch-modal.show {
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* Overlay background styling */
+.batch-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    display: none;
+}
+
+/* When overlay is visible */
+.batch-modal-overlay.show {
+    display: block;
+    opacity: 1;
+}

@@ -1,0 +1,219 @@
+<div class="tables-container d-flex flex-wrap mb-4" style="height: calc(98vh - 50px - 130px);">
+    <div class="col-12 col-lg-6 mb-4">
+        <div class="emp-logged-in-container h-100 me-lg-4 mb-5 d-flex flex-column">
+            <div class="container-title d-flex justify-content-between text-white">
+                <p id="totalLoggedIn" class="title-left flex-grow-0 bg-secondary py-2 px-4 w-25 rounded-topleft-3"></p>
+                <div
+                    class="title-right flex-grow-1 d-flex justify-content-center bg-primary w-100 pt-2 px-4 rounded-topright-3 text-uppercase">
+                    <strong>employees logged in to work</strong>
+                </div>
+            </div>
+            <div class="container-filter bg-white px-4 py-3 d-flex justify-content-between">
+                <div id="display-1" class="filter-display-1"></div>
+                <div id="search-1" class="filter-search-1"></div>
+            </div>
+            <div class="container-content flex-grow-1 bg-white px-4 pb-4 rounded-bottom-3 d-flex flex-column">
+                <div class="container-table flex-grow-1 overflow-auto" style="height: calc(100vh - 350px);">
+                    <table id="diffLocationsTable" class="display w-100 table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th style="position: sticky">Location</th>
+                                <th style="display:none">Date</th>
+                                <th style="display:none">Department</th>
+                                <th style="position: sticky">Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% locationsWithEmployeeCount.forEach(location=> { %>
+                                <tr>
+                                    <td>
+                                        <%= location.locationName %>
+                                    </td>
+                                    <td style="display:none">
+                                        <%= location.date %>
+                                    </td>
+                                    <td style="display:none">
+                                        <%= location.dept %>
+                                    </td>
+                                    <td>
+                                        <%= location.employeeCount || 0 %>
+                                    </td>
+                                   
+                                   
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="paginate-1" class="container-pagination mt-auto">
+                    <!-- Pagination controls go here -->
+                </div>
+            </div>
+ 
+        </div>
+    </div>
+ 
+    <div class="col-12 col-lg-6 mb-4">
+        <div class="emp-beyond-8-container h-100 mb-5 d-flex flex-column">
+            <div class="container-title d-flex justify-content-between text-white">
+                <p id="totalLate"
+                    class="title-left late-count-filter-2 flex-grow-0 bg-secondary py-2 px-4 w-25 rounded-topleft-3">
+                </p>
+                <div
+                    class="title-right flex-grow-1 d-flex justify-content-center bg-primary w-100 pt-2 px-4 rounded-topright-3 text-uppercase">
+                    <strong>employees reported beyond 8:00AM</strong>
+                </div>
+            </div>
+            <div class="container-filter bg-white d-flex justify-content-between px-4 py-3">
+                <div id="display-2" class="filter-display-1"></div>
+                <div id="search-2" class="filter-search-1"></div>
+            </div>
+            <div class="container-content flex-grow-1 bg-white px-4 pb-4 rounded-bottom-3 d-flex flex-column">
+                <div class="container-table flex-grow-1 overflow-auto" style="height: calc(100vh - 400px);">
+                    <table id="lateRecordsTable" class="display w-100 table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th style="display:none">Date</th>
+                                <th style="display:none">Department</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% lateEmployees.forEach(employee=> { %>
+                                <tr>
+                                    <td>
+                                        <%= employee.fname + ' ' + employee.lname %>
+                                    </td>
+                                    <td style="display:none">
+                                        <%= employee.date %>
+                                    </td>
+                                    <td style="display:none">
+                                        <%= employee.dept %>
+                                    </td>
+                                    <td>
+                                        <%= employee.time %>
+                                    </td>
+                                   
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="paginate-2" class="container-pagination mt-auto">
+                    <!-- Pagination controls go here -->
+                </div>
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <p><strong>
+                            <%= locationsWithEmployeeCount.filter(location=> location.employeeCount > 0).length %> total
+                                locations
+                        </strong></p>
+ 
+                    <!-- <p><strong> totalHours.toFixed(2)  hours spent in that location/s</strong></p> -->
+                    <p><strong> hours spent in that location/s</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="col-12 col-lg-6 mb-4">
+        <div class="emp-without-logout h-100 me-lg-4 mb-5 d-flex flex-column">
+            <div class="container-title d-flex justify-content-between text-white">
+                <p id="totalWithoutLogout"
+                    class="title-left late-count-filter-3 flex-grow-0 bg-secondary py-2 px-4 w-25 rounded-topleft-3">
+                </p>
+                <div
+                    class="title-right flex-grow-1 d-flex justify-content-center bg-primary w-100 pt-2 px-4 rounded-topright-3 text-uppercase">
+                    <strong>employees without log out</strong>
+                </div>
+            </div>
+            <div class="container-filter bg-white d-flex justify-content-between px-4 py-3">
+                <div id="display-3" class="filter-display-1"></div>
+                <div id="search-3" class="filter-search-1"></div>
+            </div>
+            <div class="without-container-content flex-grow-1 d-flex flex-column bg-white px-4 pb-4 rounded-bottom-3">
+                <div class="container-table flex-grow-1 overflow-auto" style="height: calc(100vh - 350px);">
+                    <table id="withoutLogoutTable" class="display w-100 table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th style="display:none">Date</th>
+                                <th style="display:none">Department</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% employeesWithoutLogout.forEach(employee=> { %>
+                                <tr>
+                                    <td>
+                                        <%= employee.fname + ' ' + employee.lname %>
+                                    </td>
+                                    <td style="display:none">
+                                        <%= employee.date %>
+                                    </td>
+                                    <td style="display:none">
+                                        <%= employee.dept %>
+                                    </td>
+                                    <td>
+                                        <%= employee.time %>
+                                    </td>
+                                   
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="paginate-3" class="container-pagination mt-auto"></div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="col-12 col-lg-6 mb-4">
+        <div class="emp-without-login h-100 mb-5 d-flex flex-column">
+            <div class="container-title d-flex justify-content-between text-white">
+                <p id="totalWithoutLogin"
+                    class="title-left late-count-filter-4 flex-grow-0 bg-secondary py-2 px-4 w-25 rounded-topleft-3">
+                </p>
+                <div
+                    class="title-right flex-grow-1 d-flex justify-content-center bg-primary w-100 pt-2 px-4 rounded-topright-3 text-uppercase">
+                    <strong>employees without login</strong>
+                </div>
+            </div>
+            <div class="container-filter bg-white d-flex justify-content-between px-4 py-3">
+                <div id="display-4" class="filter-display-1"></div>
+                <div id="search-4" class="filter-search-1"></div>
+            </div>
+            <div class="without-container-content flex-grow-1 d-flex flex-column bg-white px-4 pb-4 rounded-bottom-3">
+                <div class="without-container-table flex-grow-1 overflow-auto" style="height: calc(100vh - 350px);">
+                    <table id="withoutLoginTable" class="display w-100 table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th style="display:none">Date</th>
+                                <th style="display:none">Department</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% employeesWithoutLogin.forEach(employee=> { %>
+                                <tr>
+                                    <td>
+                                        <%= employee.fname + ' ' + employee.lname %>
+                                    </td>
+                                    <td style="display:none">
+                                        <%= employee.date %>
+                                    </td>
+                                    <td style="display:none">
+                                        <%= employee.dept %>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="paginate-4" class="container-pagination mt-auto"></div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<script src="/scripts/reports/end-of-day.js"></script>

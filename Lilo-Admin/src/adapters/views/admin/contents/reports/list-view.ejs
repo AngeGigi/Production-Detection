@@ -1,0 +1,79 @@
+<div class="container-fluid bg-white p-3 rounded-2 d-flex flex-column"  style="height: calc(95vh - 110px - 125px); width: fit-content;">
+    
+    <table id="recordsTableHeader" class="table table-striped table-bordered dataTable"></table>
+    
+    <!-- No Records Message -->
+    <div id="noRecordsMessage" class="text-danger fw-bold text-center d-none">
+        No matching records found.
+    </div>
+
+    <!-- Records Table -->
+    <div class="overflow-auto h-100">
+        <div class="table-responsive">
+            <table id="recordsTable" class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th style="min-width: 30px; width: 5%;">No.</th>
+                        <th style="min-width: 50px; width: 9%;">ID</th>
+                        <th style="min-width: 100px; width: 10%;">Department</th>
+                        <th style="min-width: 100px; width: 15%;">Full Name</th>
+                        <th style="min-width: 50px; width: 8%;">Time</th>
+                        <th style="min-width: 50px; width: 8%;">Date</th>
+                        <th style="min-width: 62px; width: 6%;">Activity</th>
+                        <th style="min-width: 100px; width: 9%;">Image</th>
+                        <th style="min-width: 100px; width: 15%;">Address</th>
+                        <th style="min-width: 100px; width: 15%;">Location</th>
+                        <th style="display: none">Created At</th>
+                    </tr>
+                </thead>
+                <tbody id="recordsTableBody">
+                    <% if (recordslist && recordslist.length > 0) { %>
+                        <% recordslist.forEach((record, index) => { %>
+                            <tr>
+                                <td style="min-width: 30px; width: 5%;"><%= index + 1 %></td>
+                                <td style="min-width: 50px; width: 9%;"><%= record.employee.empID %></td>
+                                <td style="min-width: 100px; width: 10%;"><%= record.employee.dept %></td>
+                                <td style="min-width: 100px; width: 15%;">
+                                    <%= [record.employee.fname, record.employee.mname, record.employee.lname]
+                                        .filter(Boolean)
+                                        .join(' ')
+                                        .trim() %>
+                                </td>
+                                <td style="min-width: 50px; width: 8%;"><%= record.time %></td>
+                                <td style="min-width: 50px; width: 8%;"><%= record.date %></td>
+                                <td style="min-width: 62px; width: 6%;"><%= record.act %></td>
+                                <td style="min-width: 100px; width: 9%;">
+                                    <img
+                                        src="<%= record.img ? 'data:image/jpeg;base64,' + record.img : '/path/to/default_image.jpg' %>"
+                                        alt="Employee Picture"
+                                        class="img-thumbnail"
+                                        id="thumbnail-img"
+                                        style="width: 120px; height: 120px"
+                                        loading="lazy"
+                                    />
+                                </td>
+                                <td style="min-width: 100px; width: 15%;"><%= record.address %></td>
+                                <td style="min-width: 100px; width: 15%;">
+                                    <div
+                                        class="map-small-list border rounded"
+                                        id="maplist-<%= index %>"
+                                        style="width: 100%; height: 120px"
+                                        data-latitude="<%= record.lat %>"
+                                        data-longitude="<%= record.long %>"
+                                    ></div>
+                                </td>
+                                <td style="display: none"><%= record.createdAt %></td>
+                            </tr>
+                        <% }) %>
+                    <% } else { %>
+                        <tr>
+                            <td colspan="11" class="text-center">No records found.</td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="dtrs-page-info"></div>
+</div>

@@ -1,0 +1,25 @@
+<div class="row w-100">
+    <%- include('../../../partials/dashboard-card', {
+        title: 'Active Employees',
+        value: totalActiveEmployees,
+        bgColor: 'bg-success',
+        icon: 'fas fa-user-check',
+        additionalClasses: 'pe-xl-3'
+    }) %>
+
+    <%- include('../../../partials/dashboard-card', {
+        title: 'Inactive Employees',
+        value: totalInactiveEmployees,
+        bgColor: 'bg-danger',
+        icon: 'fas fa-user-times',
+        additionalClasses: 'pe-xl-3'
+    }) %>
+
+    <%- include('../../../partials/dashboard-card', {
+        title: 'Pending Employees',
+        value: totalPendingEmployees,
+        bgColor: 'bg-warning',
+        icon: 'fas fa-user-clock',
+        additionalClasses: ' '
+    }) %>
+</div>

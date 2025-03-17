@@ -1,0 +1,53 @@
+.batch-modal-header {
+    text-align: center;
+    color: white;
+    background-color: #433554;
+    border-top-left-radius: 10px; /* Apply border radius to the top left corner */
+    border-top-right-radius: 10px;
+    padding: 15px 20px;
+}
+
+/* Close button styling */
+.close-button {
+    position: absolute; /* Absolute position within the modal */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    background: none; /* No background */
+    border: none; /* No border */
+    font-size: 24px; /* Larger font size */
+    cursor: pointer; /* Pointer cursor */
+    color: white; /* Color of the close button */
+}
+
+.batch-modal-content {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-bottom-left-radius: 10px; /* Apply border radius to the top left corner */
+    border-bottom-right-radius: 10px;
+}
+.batch-grid {
+    display: grid;
+    row-gap: 10px;
+}
+
+.batch-grid button {
+    text-align: start;
+    width: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.batch-grid button i {
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    color: #433554;
+}
+.batch-text {
+    flex: 1;
+    display: flex;
+    text-align: center;
+    font-size: 12px;
+}

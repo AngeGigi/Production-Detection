@@ -1,0 +1,115 @@
+<li class="nav-item" role="presentation">
+    <a href="/admin/dashboard" class="nav-link d-flex align-items-center <%= (title === 'Dashboard') ? 'active' : '' %>" role="tab">
+        <img loading="lazy" src="/pics/Home.png" style="width: 20px;" />
+        <span class="ms-2">Home</span>
+    </a>
+</li>
+<li class="nav-item" role="presentation">
+    <a href="/homepage" class="nav-link d-flex align-items-center <%= (title === 'Employees') ? 'active' : '' %>" role="tab">
+        <i class="fas fa-users me-2"></i>
+        <span>Employees</span>
+    </a>
+</li>
+<li class="nav-item" role="presentation">
+    <a href="#" class="nav-link d-flex align-items-center toggle-submenu <%= (title === 'DTRS' || title === 'Rejected Logs' || title === 'Start of Day' || title === 'End of Day') ? 'active' : '' %>
+        " data-bs-target="#submenuReports" role="tab">
+        <i class="bi bi-bar-chart" style="font-size: 20px;"></i>
+        <span class="ms-2">Reports</span>
+        <i class="submenu-arrow fas fa-chevron-down ms-auto"></i>
+    </a>
+    <!-- Submenu -->
+    <ul id="submenuReports" class="submenu">
+        <li>
+            <a href="/reports/dtrs" class="nav-link ms-4 <%= (title === 'DTRS') ? 'active' : '' %>">
+                <span class="text">DTRS Logs</span>
+            </a>
+        </li>
+        <li>
+            <a href="/reports/rejected-logs" class="nav-link ms-4 <%= (title === 'Rejected Logs') ? 'active' : '' %>">
+                <span class="text">Rejected Logs</span>
+            </a>
+        </li>
+        <li>
+            <a href="/reports/start-of-day" id="start-of-day-button" class="nav-link ms-4 <%= (title === 'Start of Day') ? 'active' : '' %>">
+                <span class="text">Start of Day</span>
+            </a>
+        </li>
+        <li>
+            <a href="/reports/end-of-day" class="nav-link ms-4 <%= (title === 'End of Day') ? 'active' : '' %>" >
+                <span class="text">End of Day</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="nav-item" role="presentation">
+    <a href="#" class="nav-link d-flex align-items-center toggle-submenu <%= (title === 'Registration' || title === 'Mismatch Location' || title === 'Logs') ? 'active' : '' %>" data-bs-target="#submenuReviews" role="tab">
+        <img loading="lazy" src="/pics/Reports.png" alt="" style="width: 20px;" />
+        <span class="ms-2">Reviews</span>
+        <i class="submenu-arrow fas fa-chevron-down ms-auto"></i>
+    </a>
+    <!-- Submenu -->
+    <ul id="submenuReviews" class="submenu">
+        <li>
+            <a href="/reviews/registration" class="nav-link ms-4 <%= (title === 'Registration') ? 'active' : '' %>">
+                <span class="text">Registration</span>
+            </a>
+        </li>
+        <li>
+            <a href="/reviews/mismatch-location" class="nav-link ms-4 <%= (title === 'Mismatch Location') ? 'active' : '' %>">
+                <span class="text">Mismatch Location</span>
+            </a>
+        </li>
+        <li>
+            <a href="/reviews/logs" id="start-of-day-button" class="nav-link ms-4 <%= (title === 'Logs') ? 'active' : '' %>">
+                <span class="text">Logs</span>
+            </a>
+        </li>                
+    </ul>
+</li>
+<li class="nav-item" role="presentation">
+    <a href="#" class="nav-link d-flex align-items-center toggle-submenu" data-bs-target="#submenuSettings" role="tab">
+        <img loading="lazy" src="/pics/Settings.png" alt="" style="width: 20px;" />
+        <span class="ms-2">Settings</span>
+        <i class="submenu-arrow fas fa-chevron-down ms-auto"></i>
+    </a>
+    <!-- Submenu -->
+    <ul id="submenuSettings" class="submenu">
+        <li>
+            <a href="#" class="nav-link ms-4" id="page-custom-btn" data-bs-toggle="modal" data-bs-target="#page-custom-modal" >
+                <span class="text">Page Customization</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link ms-4" id="log-config-btn" data-bs-toggle="modal" data-bs-target="#log-config-modal" >
+                <span class="text">Log Configuration</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link ms-4" id="ext-user-btn" data-bs-toggle="modal" data-bs-target="#extUserModal" >
+                <span class="text">Extended User</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link ms-4" id="location-track-btn" data-target="location-modal" data-bs-toggle="modal" data-bs-target="#locationSettingsModal">
+                <span class="text" >Location Track Settings</span >
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link ms-4" id="logs-display-btn" data-bs-toggle="modal" data-bs-target="#logs-display-modal" >
+                <span class="text" >Logs Display Settings</span >
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link ms-4" id="report-settings-btn" data-bs-toggle="modal" data-bs-target="#report-settings-modal" >
+                <span class="text">Report Settings</span>
+            </a>
+        </li>
+    </ul>
+</li>
+
+<li class="nav-item" role="presentation">
+    <a href="/admin/login" class="nav-link d-flex align-items-center" role="tab">
+        <img loading="lazy" src="/pics/Logout.png" alt="" class="img-fluid object-fit-cover" style="width: 20px;" />
+        <span class="ms-2">Logout</span>
+    </a>
+</li>

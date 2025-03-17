@@ -1,0 +1,33 @@
+<div class="d-flex flex-column justify-content-between h-100 pt-4 pb-5 ps-4 bg-white w-s-100" id="sidebarContent" style="position: relative;">
+    <!-- Button to collapse the sidebar -->
+    <button id="collapseBtn" class="d-none d-lg-flex btn position-absolute align-items-center justify-content-center" data-bs-dismiss="offcanvas" aria-label="Close">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <button id="collapseBtn" class="d-lg-none btn position-absolute d-flex align-items-center justify-content-center" data-bs-dismiss="offcanvas" aria-label="Close">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <!-- Logo Section -->
+    <div class="logo-section text-center mb-4 pe-4" id="logoSection">
+        <img loading="lazy" src="/pics/Lilo.png" alt="Logo" class="img-fluid w-100 object-fit-cover">
+    </div>
+
+    <!-- Navigation Tabs -->
+    <ul class="nav nav-tabs flex-column border-0 text-secondary" role="tablist" id="sidebarTabs">
+        <%- include(role === 'superadmin' ? '../superadmin/partials/sidebar.ejs' : '../admin/partials/sidebar.ejs') %>
+    </ul>
+
+    <ul class="nav nav-tabs flex-column mt-auto border-0 text-secondary" role="tablist" id="sidebarTabs">
+        <li class="nav-item" role="presentation">
+            <a href="#" class="nav-link d-flex align-items-center" role="tab">
+                <i class="darkmodebutton form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeToggle" style="width: 2rem; height: 1.25rem; cursor: pointer;">
+                </i>
+                <span class="ms-2 darkmodetext">Dark Mode</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script src="/scripts/partials/sidebar.js"></script>

@@ -1,0 +1,16 @@
+.footer {
+    z-index: 0;
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px 20px;
+}
+
+.footer img {
+    height: 30px;
+    align-items: end;
+}

@@ -1,0 +1,28 @@
+<div class="row w-100 h-100">
+    <div class="card bg-white border-0 shadow-sm w-100">
+        <div class="card-body">
+            <h4 class="text-secondary">Companies Near Expiration</h4>
+            <div class="table-responsive mt-3">
+                <table class="table table-bordered table-striped table-hover table-sm">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Company Name</th>
+                            <th>Company Code</th>
+                            <th>Days to Expire</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% latestCompany.forEach(company => { %>
+                            <tr>
+                                <td><%= company.compName %></td>
+                                <td><%= company.compCode %></td>
+                                <td><%= company.expirationDays %> days <%= company.subType %></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-12 col-lg-4 col-xl-3 d-flex pb-3 pe-lg-3">
+            <div class="card text-center bg-white border-0 shadow-sm w-100">
+                <div class="card-body d-flex flex-column align-items-start justify-content-center row-gap-3 p-4">
+                    <p class="card-title text-muted mb-0 fs-3">
+                        Total Employees Registered
+                    </p>
+                    <div class="d-flex justify-content-start align-items-center w-100 mb-1">
+                        <div class="icon-container bg-primary text-white p-3 rounded-circle me-3">
+                            <i class="bi bi-people-fill fs-2"></i>
+                        </div>
+                        <h1 class="card-text fw-bold mb-0">
+                            <%= totalEmployees %>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-12 col-lg-8 col-xl-9 d-flex">
+            <div class="row">
+                <!-- Employee Summary -->
+                <%- include('./empstat') %>
+
+                <!-- Daily Usage and Logged Status -->
+                <%- include('./dailystat') %>
+            </div>
+        </div>
+    </div>

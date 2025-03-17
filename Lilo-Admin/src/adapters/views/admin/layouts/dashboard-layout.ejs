@@ -1,0 +1,119 @@
+<head>
+    <link rel="stylesheet" href="/styles/start-of-day.css" />
+</head>
+
+<!-- <div class="dashboard row col-12 col-xl-11 col-xxl-12 d-flex justify-content-center"> -->
+<div class="dashboard row col-12 d-flex justify-content-center">
+    <!-- First Row -->
+    <%- include('../contents/dashboard/analytics/layout.ejs') %>
+
+        <!-- Second Row: Recent Users and Logins Data/Chart -->
+        <div class="dashboard-second-row w-100 mt-2 row d-flex">
+            <!-- Recently Created Users Card -->
+            <div class="col-12 col-lg-4 col-xl-3 d-flex pb-3 pb-lg-0 pe-lg-3">
+                <%- include('../contents/dashboard/tables/recent-create.ejs') %>
+            </div>
+
+            <!-- Login Data Table and Logins Chart Card -->
+            <div class="col-12 col-lg-8 col-xl-9">
+                <!-- Toggle Buttons -->
+                <%- include('../contents/dashboard/show-data.ejs') %>
+            </div>
+
+        </div>
+
+        <div class="dashboard-third-row w-100 mt-2 row d-flex">
+            <!-- Start Map Section -->
+            <div id="adjustContainer" class="col-12 col-lg-4 col-xl-3 d-flex pb-3 pb-lg-0 pe-lg-3">
+                <div class="row w-100">
+                    <div class="card bg-white border-0 shadow-sm w-100">
+                        <div class="card-body">
+                            <button id="adjustMap" class="btn bg-white" style="
+                            right: 15px;
+                            position: absolute;
+                            z-index: 1000;"><i class="bi bi-arrows-fullscreen"></i></button>
+                            <div id="startmap" class="row startmap-section "></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Table Section -->
+            <div class="col-12 col-lg-8 col-xl-9 table-section bg-white rounded-2">
+
+                <!-- Filter Section -->
+                <div class="row sod-container-filter mb-3">
+                    <div id="display-sod1" class="col-6 filter-display-1"></div>
+                    <div id="search-sod1" class="col-6 filter-search-1"></div>
+                </div>
+
+                <!-- Table Container -->
+                <div class="table-container mb-4">
+                    <div class="table-responsive sod-table-container">
+                        <table id="startTable" class="table table-bordered table-striped w-100">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Employee ID</th>
+                                    <th>Employee Name</th>
+                                    <th>Time In</th>
+                                    <th>Address</th>
+                                    <th style="display: none;">Long</th>
+                                    <th style="display: none;">Lat</th>
+                                    <th style="display: none;">img</th>
+                                </tr>
+                            </thead>
+                            <tbody id="employee-records">
+                                <% if (startRecords.length> 0) { %>
+                                    <% startRecords.forEach((emp, index)=> { %>
+                                        <tr>
+                                            <td>
+                                                <%= index + 1 %>
+                                            </td>
+                                            <td>
+                                                <%= emp.empID %>
+                                            </td>
+                                            <td>
+                                                <%= emp.fname %>
+                                                    <%= emp.mname ? emp.mname + ' ' : '' %>
+                                                        <%= emp.lname %>
+                                            </td>
+                                            <td>
+                                                <%= emp.earliest_time ? emp.earliest_time : 'N/A' %>
+                                            </td>
+                                            <td>
+                                                <%= emp.address %>
+                                            </td>
+                                            <td style="display: none;" data-lng="<%= emp.long %>">
+                                                <%= emp.long %>
+                                            </td>
+                                            <td style="display: none;" data-lat="<%= emp.lat %>">
+                                                <%= emp.lat %>
+                                            </td>
+                                            <td style="display: none;">
+                                                <img src="data:image/jpeg;base64,<%= emp.img %>" alt="Employee Image"
+                                                    class="img-fluid" style="width: 50px; height: 50px;"
+                                                    loading="lazy" />
+                                            </td>
+                                        </tr>
+                                        <% }); %>
+                                            <% } else { %>
+                                                <tr>
+                                                    <td colspan="5" class="text-center text-danger">No records found.
+                                                    </td>
+                                                </tr>
+                                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div id="paginate-sod1" class="d-flex justify-content-center mt-3"></div>
+            </div>
+        </div>
+</div>
+
+
+<script src="/scripts/admin/dashboard.js"></script>

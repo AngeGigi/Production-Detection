@@ -1,0 +1,30 @@
+<div id="loadingEmpModal" class="loading-modal">
+    <div class="loading-content">
+        <p>Loading...</p>
+        <div class="spinner"></div>
+    </div>
+</div>
+
+
+<!-- <div id="loadingEmpModal" class="modal d-flex justify-content-center align-items-center" tabindex="-1"
+    style="background: rgba(0, 0, 0, 0.5);">
+    <div class="modal-dialog">
+        <div class="modal-content text-center p-4">
+            <p class="mb-3">Loading...</p>
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<script>
+    $('#loadingEmpModal').show();
+    $('#contentEmpBody').hide();
+
+    setTimeout(function() {
+        $('#loadingEmpModal').fadeOut(function() {
+        $('#contentEmpBody').fadeIn(); 
+        });
+    }, 2000);
+</script>

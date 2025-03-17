@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>LiLo Log In</title>
+        <link rel="stylesheet" href="/styles/admin.css" />
+        <link rel="stylesheet" href="/bootstrap/custom.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    </head>
+
+    <body class="bg-white">
+        <div class="container-fluid vh-100 d-flex align-items-center position-relative">
+            <div class="row flex-row w-100 h-100">
+                <!-- Left side slideshow with 2x width on large screens, hidden on small screens -->
+                <div class="col-lg-7 col-12 background-slideshow h-100 d-none d-lg-block"></div>
+
+                <!-- Right side form with 1x width on large screens -->
+                <div class="col-lg-5 col-12 d-flex align-items-center justify-content-center p-5 bg-white">
+                    <div class="w-100" style="max-width: 350px;">
+                        <% if (title === 'Log In') { %>
+                            <%- include('../auth/login.ejs') %>
+                        <% } else if (title === 'Forgot Password') { %>
+                            <%- include('../auth/forgot-password.ejs') %>
+                        <% } else if (title === 'Reset Password') { %>
+                            <%- include('../auth/reset-password.ejs') %>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="/scripts/slideshow.js"></script>
+        <script src="/scripts/admin/auth/login.js"></script>
+        <script src="/scripts/forgot-password.js"></script>
+        <script src="/scripts/admin/notif-box.js"></script>
+    </body>
+</html>

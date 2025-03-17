@@ -1,0 +1,54 @@
+<div class="container-fluid bg-white p-3 rounded-2 d-flex flex-column"  style="height: calc(95vh - 110px - 125px);">
+    <div class="overflow-auto h-100">
+        <div class="table-responsive">
+            <table id="companiesTable" class="table table-striped table-bordered table-hover w-100">
+                <thead>
+                    <tr class="text-center">
+                        <th>Company Code</th>
+                        <th>Company User</th>
+                        <th>Company Name</th>
+                        <th>Email</th>
+                        <th>Contact Number</th>
+                        <th>Subscriber Type</th>
+                        <th>Expiration Day(s)</th>
+                        <th>Features</th>
+                        <th>Version</th>
+                        <th style="display: none;">created at</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="overflow-auto">
+                    <% companies.forEach(company => { %>
+                        <tr id="row-<%= company.compCode %>">
+                            <td><%= company.compCode %></td>
+                            <td><%= company.compUser %></td>
+                            <td><%= company.compName %></td>
+                            <td><%= company.compEmail %></td>
+                            <td><%= company.compNum %></td>
+                            <td><%= company.subType %></td>
+                            <td><%= company.compExp %></td>
+                            <td><%= company.compFeat %></td>
+                            <td><%= company.compVer %></td>
+                            <td style="display: none;"><%= company.createdAt %></td>
+                            <td>
+                                <button data-bs-toggle="modal" data-bs-target="#editCompanyModal" class="btn-edit btn btn-warning" data-id="<%= company.compCode %>">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+                                <button data-bs-toggle="modal" data-bs-target="#deleteCompModal" class="btn-delete btn btn-danger" data-id="<%= company.compCode %>">
+                                    <i class="bi bi-trash-fill"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="complist-page-info "></div>
+</div>
+
+<%- include('../components/edit-comp.ejs') %>
+<%- include('../components/del-comp.ejs') %>
+
+<script src="/scripts/superadmin/datatables/complist.js"></script>
+<script src="/scripts/superadmin/company-list.js"></script>

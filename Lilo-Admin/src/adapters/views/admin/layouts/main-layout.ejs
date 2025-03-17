@@ -1,0 +1,75 @@
+<html lang="en">
+    <%- include('../../global/head.ejs') %>
+    <body>
+        <!-- Loading Modal -->
+        <%- include('../../global/loading.ejs') %>
+
+        <main class="d-flex flex-row vh-100 overflow-hidden">
+            <!-- Left side: Sidebar -->
+            <section id="sidebar" class="analytics-left-side" style="z-index: 1000; max-width: 200px;">
+                <!-- Sidebar for large screens -->
+                <div id="sidebar" class="d-none d-xl-block bg-light">
+                    <%- include('../../global/sidebar-layout.ejs') %>
+                </div>
+
+                <!-- Sidebar (Offcanvas) -->
+                <div class="offcanvas offcanvas-start overflow-auto w-100" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel" style="background: transparent;">
+                    <div class="bg-white h-100 position-fixed" style="width: 200px;"></div>    
+                    <%- include('../../global/sidebar-layout.ejs') %>
+                </div>
+            </section>            
+
+            <!-- Right side: Main content and Notifications -->
+            <section class="analytics-right-side d-flex flex-column w-100 h-100">
+                <div id="contentEmpBody" class="" > <!-- style="display: none;"> -->
+                    <%- include('../../global/page-title.ejs') %>
+
+                    <header class="try-header d-flex flex-shrink-0" style="height: 55px">
+                        <%- include('../../global/header.ejs') %>
+                    </header>
+                    <div class="row flex-grow-1 overflow-hidden">
+                        <!-- Main Content Section -->
+                        <div class="main-content-container col-12 d-flex flex-column">
+                            <div class="overflow-auto px-4 px-md-5 py-4"  style="height: calc(100vh - 55px - 50px);">
+                                
+                                <% if (title === 'Start of Day') { %>
+                                    <%- include('../contents/reports/start-of-day-view.ejs') %>
+                                <% } else if (title === 'End of Day') { %>
+                                    <%- include('../contents/reports/end-of-day.ejs') %>
+                                <% } else { %>
+                                    <%- include(`./${layout}.ejs`) %>
+                                <% } %>
+                            </div>
+
+                            <% if (title === 'Employees') { %>
+                                <!-- Floating Button -->
+                                <%- include('../components/employees/floatbtn.ejs') %>
+                            <% } %>
+                        </div>
+
+                        <!-- Right Sidebar: Notifications (fixed) -->
+                        <div class="notif-box-container col-3 d-flex flex-column w-0 bg-white" style="height: calc(100vh - 55px - 50px);">
+                            <%- include('../partials/notif-box.ejs', { notices: notices }) %>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="try-footer d-flex flex-shrink-0" style="height: 50px">
+                    <%- include('../../global/footer.ejs') %>
+                </footer>
+            </section>
+        </main>
+
+    <%- include('../components/settings/location.ejs') %>
+
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- DataTables with Bootstrap 5 Styling -->
+        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+        <script src="/scripts/admin/notif-box.js"></script>
+    </body>
+</html>

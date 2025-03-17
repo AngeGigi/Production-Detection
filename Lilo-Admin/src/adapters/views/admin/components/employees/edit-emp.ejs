@@ -1,0 +1,81 @@
+<div id="editEmpModal" class="modal fade" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Employee Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editEmployee" action="/homepage" method="POST">
+                    <input type="hidden" id="dbid">
+                    <div class="row g-4">
+                        <!-- Left Column -->
+                        <div class="col-12 col-md-8">
+                            <div class="mb-3">
+                                <label for="employeeId" class="form-label">Employee ID:</label>
+                                <input type="text" id="employeeId" name="employeeId" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="employeeDepartment" class="form-label">Department:</label>
+                                <div class="dropdown">
+                                    <input type="text" id="employeeDepartment" name="employeeDepartment" 
+                                           class="form-control dropdown-toggle" required autocomplete="off" 
+                                           placeholder="Search or Add Department" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <ul id="editDeptList" class="dropdown-menu w-100"></ul>
+                                </div>
+                            </div>                            
+                            <div class="mb-3">
+                                <label for="firstName" class="form-label">First Name:</label>
+                                <input type="text" id="firstName" name="firstName" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="middleName" class="form-label">Middle Name:</label>
+                                <input type="text" id="middleName" name="middleName" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="lastName" class="form-label">Last Name:</label>
+                                <input type="text" id="lastName" name="lastName" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="employeeEmail" class="form-label">Email:</label>
+                                <input type="email" id="employeeEmail" name="employeeEmail" class="form-control" required>
+                            </div>
+                        </div>
+                        <!-- Right Column -->
+                        <div class="col-12 col-md-4 text-center">
+                            <div class="mb-3">
+                                <label for="employeePicture" class="form-label">Employee Picture:</label>
+                                <img id="employeeImage" class="img-fluid img-thumbnail mb-3" alt="Employee Picture">
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn btn-secondary w-100" disabled>Open Camera</button>
+                            </div>
+                            <div class="form-check form-switch mb-3">
+                                <label class="form-check-label" for="darkModeToggle">Request New Photo</label>
+                                <input class="form-check-input" type="checkbox" id="darkModeToggle">
+                            </div>
+                            <div class="mb-3">
+                                <label for="employeeLocAssign" class="form-label">Location Assignment:</label>
+                                <select id="employeeLocAssign" name="employeeLocAssign" class="form-select">
+                                    <% if (locations && locations.length > 0) { %>
+                                        <% locations.forEach(location => { %>
+                                            <option value="<%= location.name %>"><%= location.name %></option>
+                                        <% }); %>
+                                    <% } else { %>
+                                        <option value="">No locations available</option>
+                                    <% } %>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="save-edit">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    

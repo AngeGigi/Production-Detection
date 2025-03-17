@@ -1,0 +1,26 @@
+<h4 class="text-secondary">Login Data</h4>
+<div class="d-flex justify-content-center mt-4">
+    <canvas
+        id="dailyChart"
+        class="w-100"
+        style="max-width: 100%; height: 300px"
+    ></canvas>
+</div>
+<table class="daily-data-table" style="display: none">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Time In</th>
+            <th>Time Out</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% dailyData.forEach(item => { %>
+            <tr>
+                <td><%= item['fname'] %> <%= item['lname'] %></td> 
+                <td><%= item.earliest_time %></td>
+                <td><%= item.latest_out_time || 'Not logged out yet' %></td>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>

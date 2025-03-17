@@ -1,0 +1,75 @@
+<div id="createNoticeModal" class="modal fade" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Create Notice</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="errorMessages" class="d-none alert alert-danger" role="alert"></div>
+                <form id="createNoticeForm" action="/superadmin/notice/create" method="POST" enctype="multipart/form-data">
+                    <div class="row g-4">
+                        <div class="col-12 col-md-6">
+                            <div class="mb-3">
+                                <label for="noticeCompCode" class="form-label">Company Code *</label>
+                                <div id="compCodeCheckboxes"></div> 
+                            </div>
+                            <div class="mb-3">
+                                <label for="noticeSubject" class="form-label">Subject *</label>
+                                <input type="text" id="noticeSubject" name="subject" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="noticeType" class="form-label">Type *</label>
+                                <select id="noticeType" name="type" class="form-select" required>
+                                    <option value="General" selected>General</option>
+                                    <option value="Urgent">Urgent</option>
+                                    <option value="Important">Important</option>
+                                    <option value="Notice">Notice</option>
+                                    <option value="Reminder">Reminder</option>
+                                    <option value="Announcement">Announcement</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Right Column -->
+                        <div class="col-12 col-md-6">
+                            <div class="mb-3">
+                                <label for="noticeMessage" class="form-label">Message *</label>
+                                <textarea id="noticeMessage" name="message" class="form-control" rows="4" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="noticeImage" class="form-label">Attach Image</label>
+                                <input type="file" id="noticeImage" name="image" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="noticeFile" class="form-label">Attach File</label>
+                                <input type="file" id="noticeFile" name="file" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Schedule the Message?</label>
+                                <div>
+                                    <button type="button" class="btn btn-secondary" id="scheduleYes">Yes</button>
+                                    <button type="button" class="btn btn-secondary" id="scheduleNo">No</button>
+                                </div>
+                            </div>
+    
+                            <!-- Input for Date and Time (Initially hidden) -->
+                            <div class="mb-3" id="scheduleTimeDiv" style="display:none;">
+                                <label for="scheduleTime" class="form-label">Scheduled Time</label>
+                                <input type="datetime-local" id="scheduleTime" name="STime" class="form-control">
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="submitNotice">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

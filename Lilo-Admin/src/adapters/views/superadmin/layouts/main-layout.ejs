@@ -1,0 +1,121 @@
+<html lang="en">
+    <%- include('../../global/head.ejs') %>
+    <body>
+        <!-- Loading Modal -->
+        <div id="loadingEmpModal" class="loading-modal">
+            <div class="loading-content">
+                <p>Loading...</p>
+                <div class="spinner"></div>
+            </div>
+        </div>
+
+        <!-- <div id="loadingEmpModal" class="modal d-flex justify-content-center align-items-center" tabindex="-1" style="background: rgba(0, 0, 0, 0.5);">
+            <div class="modal-dialog">
+                <div class="modal-content text-center p-4">
+                    <p class="mb-3">Loading...</p>
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <main class="d-flex flex-row vh-100 overflow-hidden">
+            <!-- Left side: Sidebar -->
+            <section id="sidebar" class="analytics-left-side" style="z-index: 1000; max-width: 200px;">
+                <!-- Sidebar for large screens -->
+                <div id="sidebar" class="d-none d-lg-block bg-light">
+                    <%- include('../../global/sidebar-layout.ejs') %>
+                </div>
+
+                <!-- Sidebar (Offcanvas) -->
+                <div class="offcanvas offcanvas-start overflow-auto w-100" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel" style="background: transparent;">
+                    <div class="bg-white h-100 position-fixed" style="width: 200px;"></div>    
+                    <%- include('../../global/sidebar-layout.ejs') %>
+                </div>
+
+            </section>            
+
+            <!-- Right side: Main content and Notifications -->
+            <section class="analytics-right-side d-flex flex-column w-100 h-100">
+                <div id="contentEmpBody" class="" > <!-- style="display: none;"> -->
+                    <%- include('../../global/page-title.ejs') %>
+
+                    <header class="try-header d-flex flex-shrink-0" style="height: 55px">
+                        <%- include('../../global/header.ejs') %>
+                    </header>
+                    <div class="row flex-grow-1 overflow-hidden">
+                        <!-- Main Content Section -->
+                        <div class="main-content-container col-12 d-flex flex-column">
+                            <div class="overflow-auto px-5 py-4"  style="height: calc(100vh - 55px - 50px);">
+                                    <% if (title === 'Dashboard') { %>
+                                        <%- include(`./dashboard-layout.ejs`) %>
+                                    <% } else { %>
+                                        <div class="d-flex justify-content-between align-items-center flex-shrink-0 pb-4"
+                                            style="top: 55px; z-index: 1000">
+                                            <div class="d-flex w-100 justify-content-between align-items-center">
+                                                <%- include(`../contents/${layout}-subheader.ejs`) %>
+                                            </div>
+                                        </div>
+                                
+                                        <div class="employees-container overflow-auto" style="height: calc(98vh - 110px - 125px);">
+                                            <%- include(`../contents/${layout}-view.ejs`) %>
+                                        </div>
+                                
+                                        <div id="pagination-container" class="pagination d-flex justify-content-center align-items-center flex-shrink-0 bg-light" style="height: 30px">
+                                            <% if (title === 'Company List') { %>
+                                                <div id="CompListpaginationControls"></div>
+                                            <% } else if (title === 'Subscribers List') { %>
+                                                <div id="schNotifpaginationControls"></div>
+                                            <% } else if (title === 'Reports Logs') { %>
+                                                <div id="reportspaginationControls"></div>
+                                            <% } %>
+                                        </div>
+                                    <% } %>                        
+                            </div>
+                        </div>
+
+                        <!-- Right Sidebar: Notifications (fixed) -->
+                        <div class="notif-box-container col-3 d-flex flex-column w-0 bg-white" style="height: calc(100vh - 55px - 50px);">
+                            <%- include('../partials/notif-box.ejs', { notices: notices }) %>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+
+                <footer class="try-footer d-flex flex-shrink-0" style="height: 50px">
+                    <%- include('../../global/footer.ejs') %>
+                </footer>
+            </section>
+        </main>
+
+        <script>
+            $('#loadingEmpModal').show();
+            $('#contentEmpBody').hide();
+
+            setTimeout(function() {
+                $('#loadingEmpModal').fadeOut(function() {
+                $('#contentEmpBody').fadeIn(); 
+                });
+            }, 2000);
+        </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        
+        <!-- DataTables with Bootstrap 5 Styling -->
+        <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"> DataTables CSS -->
+        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script> <!-- DataTables JS -->
+        <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script> <!-- DataTables Bootstrap 5 JS -->
+
+        <!-- Your custom JS files -->
+        <script src="/scripts/superadmin/subs.js"></script>
+        <script src="/scripts/superadmin/settings.js"></script>
+        <script src="/scripts/superadmin/notif-box.js"></script>
+
+    </body>
+
+</html>

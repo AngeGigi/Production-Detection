@@ -1,0 +1,95 @@
+/* Sidebar container */
+#sidebarContent {
+    position: relative;
+    width: 200px;
+    transition: width 0.5s ease; /* Smooth transition for width */
+}
+
+/* Collapse button within the sidebar */
+#collapseBtn {
+    right: -14px;
+    top: 1%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #433554;
+    border: 2px solid lightgray;
+    background-color: #fff;
+}
+
+#collapseBtn i {
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Add this to your CSS file */
+#sidebarContent .nav-item {
+    width: 100%; 
+    transition: width 0.6s ease, transform 0.3s ease; /* Adjust the duration and easing function as needed */
+    overflow: hidden; /* Ensure content doesn't overflow */
+    position: relative;
+}
+
+/* Collapsed state of the sidebar */
+#sidebarContent.collapsed {
+    width: 100px; /* Reduced width when collapsed */
+}
+
+/* Collapsed state for the sidebar icons and text */
+#sidebarContent.collapsed .nav-link span {
+    opacity: 0; /* Make text transparent instead of using visibility */
+    pointer-events: none; /* Disable interaction with text */
+    transition: opacity 0.3s ease; /* Smooth opacity transition */
+}
+
+
+/* Collapsed nav item hover effect */
+#sidebarContent.collapsed .nav-item:hover {
+    width: max-content; /* Expand width when hovered */
+    transform: translateX(50px) 0.5s ease; /* Push the item outside the collapsed sidebar */
+}
+
+#sidebarContent.collapsed .nav-item:hover .submenu{
+    height: max-content; /* Expand width when hovered */
+}
+
+/* Hover effect for the individual nav links in the collapsed sidebar */
+#sidebarContent.collapsed .nav-item:hover .nav-link {
+    background-color: white; /* Apply white background to the entire button */
+    color: #000; /* Ensure the text color is visible on white background */
+}
+
+/* Ensure that text is initially hidden when collapsed */
+#sidebarContent.collapsed .nav-link span {
+    opacity: 0; /* Hide text */
+    pointer-events: none; /* Disable interaction with the text */
+    transition: opacity 0.3s ease; /* Smooth opacity transition */
+}
+
+/* Show text when hovering on the collapsed sidebar */
+#sidebarContent.collapsed .nav-item:hover .nav-link span {
+    opacity: 1; /* Make text visible on hover */
+    pointer-events: auto; /* Re-enable interaction with the text */
+}
+
+/* Initial state of the submenu */
+.submenu {
+    list-style-type: none; 
+    padding-left: 0; 
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+/* Show state of the submenu */
+.submenu.show {
+    max-height: 500px; /* Set a value greater than the submenu's maximum height */
+}
+
+.darkmodetext {
+    font-size: 1rem;
+}
+
+.darkmodebutton:hover {   
+    margin: 0;
+}

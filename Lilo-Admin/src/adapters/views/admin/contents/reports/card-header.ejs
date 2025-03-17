@@ -1,0 +1,27 @@
+<!-- Card Filters Section -->
+<div id="current-date" class="current-date"></div>
+
+<div class="card-filters d-flex justify-content-start align-items-center gap-5">
+    <!-- Cards per Group Section -->
+    <div id="DTRScardLimit" class="d-flex">
+    </div>
+
+    <!-- Filter Cards Dropdown -->
+    <div class="d-flex" id="DTRSfilterCard">
+        <select
+            id="cardSortCriteria"
+            class="form-select w-auto"
+        >
+            <option value="select" selected>No Filter</option>
+            <option value="employeeId">Employee ID</option>
+            <option value="fullName">Full Name</option>
+            <option value="check-in">Check-In</option>
+            <option value="check-out">Check-Out</option>
+        </select>
+    </div>
+</div>
+
+<!-- Export Button -->
+<button id="exportCardCsvBtn" class="btn btn-primary">
+    <i class="fa-solid fa-file-arrow-down"></i> Export to CSV
+</button>

@@ -1,0 +1,96 @@
+<head>
+    <link rel="stylesheet" href="/styles/dtrs-card.css" />
+    <link rel="stylesheet" href="/styles/dtrs-list.css" />
+</head>
+
+<body>
+<% const viewType = currentView === 'card' ? 'card' : 'list'; %>
+
+    <!-- Header Section with Filter and Export Button -->
+    <div
+        id="card-filters-container"
+        class="d-flex justify-content-between align-items-center flex-shrink-0 bg-light pb-4"
+        style="top: 55px; z-index: 1000"
+    >
+        <div class="d-flex w-100 justify-content-between align-items-center">
+            <% if (title === 'DTRS') { %>
+                <%- include(`../contents/reports/${viewType}-header.ejs`) %>
+            <% } else if (title === 'Rejected Logs') { %>
+                <%- include('../contents/reports/rejected-logs-header.ejs') %>
+            <% } %>
+        </div>
+    </div>
+
+    <!-- Employees Container (Dynamic Card Section) -->
+    <div id="records-container" class="records-container overflow-auto" style="height: calc(98vh - 110px - 125px);">
+        <% if (title === 'DTRS') { %>
+            <%- include(`../contents/reports/${viewType}-view.ejs`) %>
+        <% } else if (title === 'Rejected Logs') { %>
+            <%- include('../contents/reports/rejected-logs-view.ejs') %>
+        <% } %>        
+    </div>
+
+    <!-- Pagination Section -->
+    <div
+        id="pagination-container"
+        class="pagination d-flex justify-content-center align-items-center flex-shrink-0 bg-light pt-3"
+        style="height: 30px"
+    >
+        <% if (title === 'Rejected Logs') { %>
+            <div id="RejLogspaginationControls"></div>
+        <% } else if (currentView === 'card') { %>
+            <div id="DTRSCardpaginationControls" class="d-flex"></div>
+        <% } else if (currentView === 'list') { %>
+            <div id="DTRSpaginationControls"></div>
+        <% } else if (currentView === '') { %>
+            
+            <% } %>
+    </div>
+
+    <div id="imageModal" class="img-modal">
+        <div class="img-modal-content">
+            <span class="img-close" id="modalClose">&times;</span>
+            <img
+                class="img-modal-content"
+                id="modalImg"
+                alt="Larger Employee Image"
+                loading="lazy"
+            />
+        </div>
+    </div>
+
+    <div id="mapModal" class="modal">
+        <div class="modal-content">
+            <div id="modalMap"></div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imgModal" class="img-modal">
+        <div class="img-modal-content">
+            <span class="img-close" id="closeImageModal">&times;</span>
+            <img class="img-modal-content" id="modalListImage" />
+        </div>
+    </div>
+
+    <!-- Map Modal -->
+    <div id="mapModalList" class="modal">
+        <div class="modal-content">
+            <div id="modalMapList"></div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="picModal" class="img-modal">
+        <div class="img-modal-content">
+            <span class="img-close" id="closePicModal">&times;</span>
+            <img class="img-modal-content" id="modalPic" />
+        </div>
+    </div>
+
+    <!-- Include JavaScript -->
+    <script src="/scripts/reports/export-dtrs.js"></script>
+    <script src="/scripts/reports/dtrs-list.js"></script>
+    <script src="/scripts/reports/rejected-logs.js"></script>
+    <!-- <script src="/scripts/reports/start-of-day.js"></script> -->
+</body>

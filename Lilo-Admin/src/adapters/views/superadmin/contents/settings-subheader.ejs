@@ -1,0 +1,22 @@
+<ul class="nav nav-pills" id="myTab" role="tablist">
+    <% const tabs = [
+        { id: "user-management", label: "User Management", active: true },
+        { id: "profile-settings", label: "Profile Settings", active: false },
+        // Future tab entries can be added here
+    ]; %>
+
+    <% tabs.forEach(tab => { %>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link <%= tab.active ? 'active' : '' %>" 
+                id="<%= tab.id %>-tab" 
+                data-bs-toggle="tab" 
+                data-bs-target="#<%= tab.id %>" 
+                type="button" 
+                role="tab" 
+                aria-controls="<%= tab.id %>" 
+                aria-selected="<%= tab.active %>">
+                <%= tab.label %>
+            </button>
+        </li>
+    <% }) %>
+</ul>

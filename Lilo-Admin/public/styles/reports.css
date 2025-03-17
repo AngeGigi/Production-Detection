@@ -1,0 +1,35 @@
+main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    column-gap: 25px;
+}
+
+body {
+    overflow: hidden;
+}
+
+/* Restrict scroll to card-view only */
+.dtrs-right-side {
+    flex: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent scrolling on the entire section */
+}
+
+#records-card-view {
+    flex-grow: 1; /* Allow the card view to take up available space */
+    overflow-y: auto; /* Enable vertical scrolling for the card view */
+    margin-top: 55px;
+    padding: 10px;
+    max-height: calc(
+        100vh - 105px
+    ); /* Adjust height based on the rest of the content */
+}
+
+/* Optional: For list-view if you want the same behavior */
+

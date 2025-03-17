@@ -1,0 +1,155 @@
+.add-emp {
+    z-index: 1000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
+    height: fit-content;
+    width: 500px;
+    border-radius: 10px;
+}
+
+.add-emp h1 {
+    text-align: center;
+    color: white;
+    background-color: #433554;
+    border-top-left-radius: 10px; /* Apply border radius to the top left corner */
+    border-top-right-radius: 10px;
+    padding: 15px 20px;
+}
+
+.add-emp form {
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+}
+.add-left {
+    flex: 2;
+}
+.add-right {
+    flex: 1;
+    max-width: 200px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    color: black;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+.form-group select {
+    padding: 10px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input[type="file"] {
+    padding: 5px;
+}
+.form-group select {
+    max-height: 41px;
+}
+
+input:focus,
+select:focus {
+    border-color: #433554;
+    border-width: 2px;
+    outline: none;
+}
+
+.register-btn {
+    max-width: 200px;
+    padding: 10px;
+    background-color: #433554;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    position: fixed;
+    bottom: 25px;
+    right: 20px;
+}
+
+.opencam-btn:hover,
+.register-btn:hover {
+    background-color: #0056b3;
+}
+
+#employeeImage {
+    width: 200px;
+    object-fit: contain; /* This will ensure the image covers the area without stretching */
+    border-radius: 5px;
+    background-color: gray;
+}
+
+.opencam-btn {
+    max-width: 200px;
+    padding: 5px;
+    background-color: #433554;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.req-new-pic {
+    display: flex;
+    flex-direction: row;
+}
+.req-new-pic p {
+    flex: 3;
+}
+.req-new-pic label {
+    flex: 1;
+    max-width: 35px;
+}
+
+.status {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.status label {
+    flex: 1;
+}
+.status-indicator {
+    bottom: 5px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid white;
+    position: relative; /* Ensure the tooltip is positioned relative to this element */
+    display: inline-block;
+}
+#employeeStatus {
+    flex: 2;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.opencam-btn:disabled,
+.register-btn:disabled {
+    background-color: #cccccc; /* Light gray background when disabled */
+    color: #666666; /* Optional: Change text color */
+    cursor: not-allowed; /* Optional: Change cursor to indicate it's disabled */
+    opacity: 0.6; /* Optional: Make the button appear faded */
+}

@@ -1,0 +1,25 @@
+<div class="row w-100">
+    <%- include('../../../partials/dashboard-card', {
+        title: 'Daily Usage',
+        value: totalDailyUsage,
+        bgColor: 'bg-info',
+        icon: 'fas fa-chart-line',
+        additionalClasses: 'pe-xl-3'
+    }) %>
+
+    <%- include('../../../partials/dashboard-card', {
+        title: 'Logged In Today',
+        value: totalLoggedIn,
+        bgColor: 'bg-primary',
+        icon: 'fas fa-sign-in-alt',
+        additionalClasses: 'pe-xl-3'
+    }) %>
+
+    <%- include('../../../partials/dashboard-card', {
+        title: 'Logged Out Today',
+        value: totalLoggedOut,
+        bgColor: 'bg-secondary',
+        icon: 'fas fa-sign-out-alt',
+        additionalClasses: ''
+    }) %>
+</div>

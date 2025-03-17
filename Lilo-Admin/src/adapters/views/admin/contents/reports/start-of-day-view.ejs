@@ -1,0 +1,365 @@
+ 
+        <div class="container-fluid sod-container">
+            <!-- Flex container for Start of Day section -->
+            <div class="row gap-4">
+                <!-- Start Map Section -->
+                <div id="startmap" class="col-12 col-md-4 startmap-section"></div>
+       
+                <!-- Table Section -->
+                <div class="col-12 col-md-8 table-section bg-white rounded-2">
+                    <!-- Top Table Section -->
+                    <div class="d-flex justify-content-between align-items-center sod-top-table mb-3">
+                        <div class="table-img">
+                            <img loading="lazy" src="/pics/Lilo.png" alt="Logo" class="img-fluid" />
+                        </div>
+                        <div class="text-center sod-date">
+                            <h2>START OF DAY REPORTS</h2>
+                            <p id="currentDate"></p>
+                        </div>
+                        <div class="text-center sod-summary">
+                            <h2>TOTAL LOGGED-IN</h2>
+                            <p id="totalLoggedIn">
+                                <%= totalLoggedIn %>/<%= totalEmployees %>
+                            </p>
+                            <p>AS OF 8AM</p>
+                        </div>
+                    </div>
+       
+                    <!-- Filter Section -->
+                    <div class="row sod-container-filter mb-3">
+                        <div id="display-sod1" class="col-6 filter-display-1"></div>
+                        <div id="search-sod1" class="col-6 filter-search-1"></div>
+                    </div>
+       
+                    <!-- Table Container -->
+                    <div class="table-container mb-4">
+                        <div class="table-responsive sod-table-container">
+                            <table id="startTable" class="table table-bordered table-striped w-100">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Employee ID</th>
+                                        <th>Employee Name</th>
+                                        <th>Time In</th>
+                                        <th>Address</th>
+                                        <th style="display: none;">Long</th>
+                                        <th style="display: none;">Lat</th>
+                                        <th style="display: none;">img</th>
+                                        <th>Department</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="employee-records">
+                                    <% if (startRecords.length > 0) { %>
+                                        <% startRecords.forEach((emp, index) => { %>
+                                            <tr>
+                                                <td><%= index + 1 %></td>
+                                                <td><%= emp.empID %></td>
+                                                <td><%= emp.fname %> <%= emp.mname ? emp.mname + ' ' : '' %><%= emp.lname %></td>
+                                                <td><%= emp.earliest_time ? emp.earliest_time : 'N/A' %></td>
+                                                <td><%= emp.address %></td>
+                                                <td style="display: none;" data-lng="<%= emp.long %>"><%= emp.long %></td>
+                                                <td style="display: none;" data-lat="<%= emp.lat %>"><%= emp.lat %></td>
+                                                <td style="display: none;">
+                                                    <img src="data:image/jpeg;base64,<%= emp.img %>" alt="Employee Image" class="img-fluid" style="width: 50px; height: 50px;" loading="lazy" />
+                                                </td>
+                                                <td><%= emp.dept %></td>
+                                            </tr>
+                                        <% }); %>
+                                    <% } else { %>
+                                        <tr>
+                                            <td colspan="6" class="text-center text-danger">No records found.</td>
+                                        </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+       
+                    <!-- Pagination -->
+                    <div id="paginate-sod1" class="d-flex justify-content-center mt-3"></div>
+                </div>
+            </div>
+       
+            <!-- Not Yet Logged In Section -->
+            <div class="row py-4 gap-4">
+                <!-- Not Logged In Map -->
+                <div id="notLoggedInMap" class="col-12 col-md-4 notmap-section"></div>
+       
+                <!-- Not Yet Logged In Table -->
+                <div class="col-12 col-md-8 not-yet-loggedin-container bg-white rounded-2">
+                    <!-- Top Table Section -->
+                    <div class="d-flex justify-content-between align-items-center sod-top-table mb-3">
+                        <div class="table-img">
+                            <img loading="lazy" src="/pics/Lilo.png" alt="Logo" class="img-fluid" />
+                        </div>
+                        <div class="text-center sod-date">
+                            <h2>LAST LOCATION REPORT</h2>
+                            <p id="currentNotLoggedInDate"></p>
+                        </div>
+                        <div class="text-center sod-summary">
+                            <h2>NOT YET LOGGED-IN</h2>
+                            <p id="totalNotLoggedIn">
+                                <%= totalNotLoggedIn %>/<%= totalEmployees %>
+                            </p>
+                            <p>AS OF 8AM</p>
+                        </div>
+                    </div>
+       
+                    <!-- Filter Section -->
+                    <div class="row sod-container-filter mb-3">
+                        <div id="display-sod2" class="col-6 filter-display-1"></div>
+                        <div id="search-sod2" class="col-6 filter-search-1"></div>
+                    </div>
+       
+                    <!-- Table Container -->
+                    <div class="table-container mb-4">
+                        <div class="table-responsive sod-table-container">
+                            <table id="notLoggedInTable" class="table table-bordered table-striped w-100">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Employee ID</th>
+                                        <th>Employee Name</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Address</th>
+                                        <th style="display: none;">Long</th>
+                                        <th style="display: none;">Lat</th>
+                                        <th style="display: none;">img</th>
+                                        <th>Department</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="not-loggedin-records">
+                                    <% if (notRecords.length > 0) { %>
+                                        <% notRecords.forEach((emp, index) => { %>
+                                            <tr>
+                                                <td><%= index + 1 %></td>
+                                                <td><%= emp.empID %></td>
+                                                <td><%= emp.fname %> <%= emp.mname ? emp.mname + ' ' : '' %><%= emp.lname %></td>
+                                                <td><%= emp.date ? emp.date : 'N/A' %></td>
+                                                <td><%= emp.time ? emp.time : 'N/A' %></td>
+                                                <td><%= emp.address ? emp.address : 'N/A' %></td>
+                                                <td style="display: none;"><%= emp.longitude ? emp.longitude : '121.0365' %></td>
+                                                <td style="display: none;"><%= emp.latitude ? emp.latitude : '14.9264' %></td>
+                                                <td style="display: none;">
+                                                    <img src="<%= emp.img ? 'data:image/jpeg;base64,' + emp.img : '../pics/default-pic.jpg' %>" alt="Employee Image" class="img-fluid" style="width: 50px; height: 50px;" loading="lazy" />
+                                                </td>
+                                                <td><%= emp.dept %></td>
+                                            </tr>
+                                        <% }); %>
+                                    <% } else { %>
+                                        <tr>
+                                            <td colspan="10" class="text-center text-danger">No records found.</td>
+                                        </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+       
+                    <!-- Pagination -->
+                    <div id="paginate-sod2" class="d-flex justify-content-center mt-3"></div>
+                </div>
+            </div>
+        </div>
+       
+ 
+       
+        <script>
+            $(document).ready(function() {
+                // Initialize DataTables
+                const startTable = $('#startTable').DataTable({
+           
+                    deferRender: true,
+                    paging: true,
+                    lengthChange: true,
+                    searching: true,
+                    ordering: true,
+                    info: true,
+                    columnDefs: [{ visible: false, targets: [5,6,7] }],
+                    language: {
+                        lengthMenu: "Show _MENU_",
+                        zeroRecords: "No matching records found",
+                        info: "Showing page _PAGE_ of _PAGES_",
+                        infoEmpty: "No records available",
+                        infoFiltered: "(filtered from _MAX_ total records)",
+                        search: "",
+                        searchPlaceholder: "Search Records",
+                        paginate: {
+                            previous: "<<",
+                            next: ">>",
+                        },
+                    },
+               
+            });
+               
+                $("#startTable_filter").appendTo("#search-sod1").find("input");
+                $("#startTable_filter").addClass("d-flex justify-content-end");
+                $("#startTable_length").appendTo("#display-sod1");
+                $("#startTable_length label").addClass(" d-flex align-items-center");
+                $("#startTable_length select").addClass("w-fit-content");
+                $("#startTable_paginate")
+                    .detach()
+                    .appendTo("#paginate-sod1");
+               
+                    const notLoggedInTable = $('#notLoggedInTable').DataTable({
+                    deferRender: true,
+                    paging: true,
+                    lengthChange: true,
+                    searching: true,
+                    ordering: true,
+                    info: true,
+                    columnDefs: [{ visible: false, targets: [6,7,8] }],
+                    language: {
+                        lengthMenu: "Show _MENU_",
+                        zeroRecords: "No matching records found",
+                        info: "Showing page _PAGE_ of _PAGES_",
+                        infoEmpty: "No records available",
+                        infoFiltered: "(filtered from _MAX_ total records)",
+                        search: "",
+                        searchPlaceholder: "Search Records",
+                        paginate: {
+                            previous: "<<",
+                            next: ">>",
+                        },
+                    },
+                });
+               
+                $("#notLoggedInTable_filter").appendTo("#search-sod2").find("input");
+                $("#notLoggedInTable_filter").addClass("d-flex justify-content-end");
+                $("#notLoggedInTable_length").appendTo("#display-sod2");
+                $("#notLoggedInTable_length label").addClass(" d-flex align-items-center");
+                $("#notLoggedInTable_length select").addClass("w-fit-content");
+                $("#notLoggedInTable_paginate")
+                    .detach()
+                    .appendTo("#paginate-sod2");
+               
+                    $("#departmentDropdown").on("change", function () {
+                        const selectedDepartment = $(this).val();
+                       
+                        // Filter the 'startTable' by department
+                        startTable.column(8)  // Assuming the department column is index 8
+                            .search(selectedDepartment === "all" ? '' : selectedDepartment)
+                            .draw();
+ 
+                        // Filter the 'notLoggedInTable' by department
+                        notLoggedInTable.column(9)  // Assuming the department column is index 9
+                            .search(selectedDepartment === "all" ? '' : selectedDepartment)
+                            .draw();
+                    });
+                // Show the current date for the start of day reports
+                document.getElementById('currentDate').innerText = new Date().toLocaleDateString();
+               
+                // Show the current date for the not logged in reports
+                document.getElementById('currentNotLoggedInDate').innerText = new Date().toLocaleDateString();
+               
+            const startmap = L.map('startmap').setView([15.5, 120.9], 7);
+       
+                // Add OpenStreetMap tile layer
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 15,
+                    attribution: '© OpenStreetMap contributors',
+                }).addTo(startmap);
+ 
+            const startRecords = <%- JSON.stringify(startRecords) %>;
+            function getJitteredPosition(lat, long) {
+                const jitter = 0.1; // Adjust this value as needed
+                return [
+                    lat + (Math.random() - 0.5) * jitter,
+                    long + (Math.random() - 0.5) * jitter
+                ];
+            }
+ 
+            startRecords.forEach(emp => {
+                if (emp.lat && emp.long && emp.img) {
+                // Get a jittered position
+                const [jitteredLat, jitteredLng] = getJitteredPosition(emp.lat, emp.long);
+ 
+                var customIcon = L.divIcon({
+                    className: 'custom-icon-wrapper', // Use the wrapper for positioning
+                    html: `
+                        <div class="custom-icon">
+                            <img src="data:image/jpeg;base64,${emp.img}" alt="Marker Icon">
+                        </div>
+                        <div class="custom-triangle"></div>
+                    `,
+                    iconSize: [50, 75],
+                    iconAnchor: [25, 50],
+                    popupAnchor: [0, -50]
+                });
+ 
+                var marker = L.marker([jitteredLat, jitteredLng], { icon: customIcon })
+                .bindPopup(`${emp.fname} ${emp.mname ? emp.mname + ' ' : ''}${emp.lname}`);
+               
+                marker.addTo(startmap);
+            }
+            });
+ 
+            const notLoggedInMap = L.map('notLoggedInMap').setView([15.5, 120.9], 7);
+ 
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 15,
+    attribution: '© OpenStreetMap contributors',
+}).addTo(notLoggedInMap);
+ 
+const notRecords = <%- JSON.stringify(notRecords) %>;
+ 
+function getJitteredPosition(latitude, longitude) {
+    const jitter = 0.1; // Adjust this value as needed
+    return [
+        latitude + (Math.random() - 0.5) * jitter,
+        longitude + (Math.random() - 0.5) * jitter
+    ];
+}
+ 
+// Add markers for not logged-in records
+notRecords.forEach(emp => {
+    if (emp.latitude && emp.longitude && emp.img) {
+        // Get a jittered position
+        const [jitteredLat, jitteredLng] = getJitteredPosition(emp.latitude, emp.longitude);
+ 
+        // Create the custom icon with image and triangle
+        var notcustomIcon = L.divIcon({
+            className: 'custom-icon-wrapper', // Use the wrapper for positioning
+            html: `
+                <div class="custom-icon">
+                    <img src="data:image/jpeg;base64,${emp.img}" alt="Marker Icon">
+                </div>
+                <div class="custom-triangle"></div>
+            `,
+            iconSize: [50, 75], // Adjust height to accommodate the triangle
+            iconAnchor: [25, 50], // Adjust anchor point to center on the circular icon
+            popupAnchor: [0, -50]
+        });
+ 
+        var marker = L.marker([jitteredLat, jitteredLng], { icon: notcustomIcon }) // Use the correct variable name
+            .bindPopup(`${emp.fname} ${emp.mname ? emp.mname + ' ' : ''}${emp.lname}`);
+ 
+        marker.addTo(notLoggedInMap);
+    }
+});
+ 
+ 
+ 
+            // notRecords.forEach(emp => {
+            //     if (emp.latitude && emp.longitude) {
+            //         // Create a custom icon using the employee's image
+            //         const iconUrl = emp.img ? `data:image/jpeg;base64,${emp.img}` : '../pics/default-pic.jpg'; // Correctly defining the iconUrl variable
+
+            //         const notCustomIcon = L.icon({
+            //             className: 'custom-icon',
+            //             iconUrl: iconUrl,
+            //             iconSize: [100, 100], // Size of the icon [width, height]
+            //             iconAnchor: [25, 50], // Adjust anchor point to center the icon
+            //             popupAnchor: [0, -40], // Adjust popup position
+            //         });
+
+            //         L.marker([emp.latitude, emp.longitude], { icon: notCustomIcon })
+            //             .addTo(notLoggedInMap)
+            //             .bindPopup(`${emp.fname} ${emp.mname ? emp.mname + ' ' : ''}${emp.lname}`);
+            //     }
+            // });
+            });
+        </script>
+ 
+ 

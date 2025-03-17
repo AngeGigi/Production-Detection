@@ -1,0 +1,34 @@
+<div class="modal fade" id="batchRegisterModal" tabindex="-1" aria-labelledby="batchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title text-white" id="batchModalLabel">Batch Registration</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h5 class="me-3 mb-0">Upload CSV File:</h5>
+                    <button id="downloadTemplate" class="btn btn-outline-primary">
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                        <div class="batch-text d-inline">Download Template</div>
+                    </button>
+                </div>
+                <div class="batch-grid mb-3">
+                    <input type="file" accept=".csv" id="csvFile" class="form-control" />
+                </div>
+            </div>
+
+            <!-- Modal Footer (Optional) -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button id="importButton" class="btn btn-primary d-flex justify-content-between align-items-center">
+                    <i class="fa-solid fa-file-import"></i>
+                    <div class="batch-text d-inline">Import Records</div>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+/* Tooltip container */
+.custom-tooltip {
+    position: relative; /* Change to relative to correctly position the tooltip */
+    display: inline-block;
+    cursor: pointer; /* Optional: to show the pointer cursor on hover */
+}
+
+/* Tooltip Text (shows on hover) */
+.custom-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 100%; /* Position above the element */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #43355469; /* Adjusted background color */
+    color: rgb(255, 255, 255);
+    padding: 4px 8px; /* Reduced padding for better fit */
+    border-radius: 2px;
+    font-size: 12px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.15s ease, visibility 0s linear 0.15s; /* Transition opacity with delay */
+    pointer-events: none; /* Prevent the tooltip from blocking interactions */
+}
+
+/* Show Tooltip on Hover */
+.custom-tooltip:hover::after {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
+}
+
+/* Tooltip container */
+.custom-tooltip-top {
+    position: relative; /* Change to relative to correctly position the tooltip */
+    display: inline-block;
+    cursor: pointer; /* Optional: to show the pointer cursor on hover */
+}
+
+/* Tooltip Text (shows on hover) */
+.custom-tooltip-top::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%; /* Position above the element */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #43355469; /* Adjusted background color */
+    color: rgb(255, 255, 255);
+    padding: 4px 8px; /* Reduced padding for better fit */
+    border-radius: 2px;
+    font-size: 12px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.15s ease, visibility 0s linear 0.15s; /* Transition opacity with delay */
+    pointer-events: none; /* Prevent the tooltip from blocking interactions */
+}
+
+/* Show Tooltip on Hover */
+.custom-tooltip-top:hover::after {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
+}
+/* Tooltip container */
+.custom-tooltip-left {
+    position: relative; /* Change to relative to correctly position the tooltip */
+    display: inline-block;
+    cursor: pointer; /* Optional: to show the pointer cursor on hover */
+}
+
+/* Tooltip Text (shows on hover) */
+.custom-tooltip-left::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 50%; /* Position vertically centered relative to the element */
+    right: 110%; /* Position the tooltip to the left of the element */
+    transform: translateY(-50%); /* Adjust for vertical centering */ 
+    background-color: #43355469; /* Adjusted background color */
+    color: rgb(255, 255, 255);
+    padding: 4px 8px; /* Reduced padding for better fit */
+    border-radius: 2px;
+    font-size: 12px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.15s ease, visibility 0s linear 0.15s; /* Transition opacity with delay */
+    pointer-events: none; /* Prevent the tooltip from blocking interactions */
+}
+
+/* Show Tooltip on Hover */
+.custom-tooltip-left:hover::after {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
+}

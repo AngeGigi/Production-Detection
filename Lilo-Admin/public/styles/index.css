@@ -1,0 +1,95 @@
+main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    column-gap: 25px;
+}
+
+#card-view,
+#list-view {
+    display: none;
+}
+
+/* Restrict scroll to card-view only */
+.right-side {
+    flex: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent scrolling on the entire section */
+}
+
+#card-view {
+    flex-grow: 1; /* Allow the card view to take up available space */
+    overflow-y: auto; /* Enable vertical scrolling for the card view */
+    padding: 10px;
+    max-height: calc(
+        100vh - 105px
+    ); /* Adjust height based on the rest of the content */
+}
+
+
+.comp {
+    font-size: 15px;
+    z-index: 2;
+    height: 55px;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+
+#error-message {
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+}
+
+/* Modal base styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1001;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* When modal is visible */
+.modal.show {
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* Overlay background styling */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    display: none;
+}
+
+/* When overlay is visible */
+.overlay.show {
+    display: block;
+    opacity: 1;
+}

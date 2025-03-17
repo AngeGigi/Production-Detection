@@ -1,0 +1,81 @@
+<div class="card d-block">
+    <div class="card-header" style="height: 40px;">Notifications&nbsp;<strong>(<%= noticeCount %>)</strong></div>
+    <div id="notif-search-area"></div>
+    <ul id="notif-card-view" class="list-group list-group-flush overflow-auto"
+        style="max-height: calc(100vh - 90px - 90px)"></ul>
+    <div id="notif-info-area" colspan="100%" class="p-3 text-center"></div>
+</div>
+
+<div style="visibility: hidden; width: 20px;">
+    <table id="notifTable" class="display">
+        <thead>
+            <tr>
+                <th class="d-none">ID</th>
+                <th>Company Codes</th>
+                <th class="d-none">Company Names</th>
+                <th>Subject</th>
+                <th class="d-none">Type</th>
+                <th>Message</th>
+                <th class="d-none">Image</th>
+                <th class="d-none">File</th>
+                <th>Start Time</th>
+                <th class="d-none">Created At</th>
+                <th class="d-none">Updated At</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% notices.forEach(function(notice) { %>
+                <tr>
+                    <td class="d-none">
+                        <%= notice.id %>
+                    </td>
+                    <td>
+                        <%= JSON.parse(notice.compCodes).join(', ') %></td>
+                    <td class="d-none"><%= notice.compNames %></td>
+                    <td><%= notice.subject %></td>
+                    <td class="d-none"><%= notice.type %></td>
+                    <td><%= notice.message %></td>
+                    <td class="d-none"><%= notice.image %></td>
+                    <td class="d-none"><%= notice.file %></td>
+                    <td><%= notice.timeAgo %></td>
+                    <td class="d-none"><%= notice.createdAt %></td>
+                    <td class="d-none"><%= notice.updatedAt %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+
+
+
+<!-- Modal for Showing Notification Details -->
+<div class="modal fade" id="noticeModal" tabindex="-1" aria-labelledby="noticeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-white">
+                <h5 class="modal-title" id="modalType"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bg-white">
+                <div class="mb-3">
+                    <span class="modalTime badge me-2" id="modalTime"></span>
+                </div>
+                <div class="mb-3">
+                    <h6 class="fw-bold">Message Sent to:</h6>
+                    <p id="modalCompCodes" class="text-muted"></p>
+                </div>
+                <hr>
+                <div class="mb-3">
+                    <h6 class="fw-bold" id="modalSubject"></h6>
+                    <p id="modalMessage" class="text-muted"></p>
+                </div>
+                <div class="mb-3">
+                    <h6 id="attachLabel" class="mb-2 fw-bold">Attachments:</h6>
+                    <p id="modalImage" class="mb-3 w-50"></p>
+                    <p id="modalFile"></p>
+                </div>
+            </div>
+            <div class="modal-footer bg-white"></div>
+        </div>
+    </div>
+</div>

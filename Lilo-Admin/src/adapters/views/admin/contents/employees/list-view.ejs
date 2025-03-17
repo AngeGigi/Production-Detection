@@ -1,0 +1,66 @@
+<!-- Deleting Employee Modal -->
+<%- include('../../components/employees/del-emp.ejs') %>
+
+<!-- Change Status Modal -->
+<%- include('../../components/employees/change-stat.ejs') %>
+
+<div class="container-fluid bg-white p-3 rounded-2 d-flex flex-column"  style="height: calc(95vh - 110px - 125px);">
+    
+    <!-- Uncomment when min-width and width are set for table columns -->
+    <!-- <table id="employeeTableHeader" class="table table-striped table-bordered dataTable"></table> -->
+    
+    <div class="overflow-auto h-100">
+        <div class="table-responsive">
+            <table id="employeeTable" class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>No.</th>
+                        <th>Full Name</th>
+                        <th>Employee ID</th>
+                        <th>Department</th>
+                        <th>Email</th>
+                        <th>Location Assignment</th>
+                        <th>Registration Status</th>
+                        <th>Employee Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="employeeTableBody" class="overflow-auto">
+                    <% employees.forEach((employee, index) => { %>
+                        <tr data-id="<%= employee.id %>">
+                            <td><%= index + 1 %></td>
+                            <td><%= employee.fname %> <%= employee.lname %></td>
+                            <td><%= employee.empID %></td>
+                            <td><%= employee.dept %></td>
+                            <td><%= employee.email || 'n/a' %></td>
+                            <td><%= employee.Location.name %></td>
+                            <td><%= employee.regStat %></td>
+                            <td class="text-center">
+                                <input type="hidden" class="currentStat" value="<%= employee.empStat %>">
+                                <input type="hidden" class="thisID" value="<%= employee.id %>">
+                                <% if (employee.empStat === 'Pending') { %>
+                                    <button class="btn btn-secondary" disabled>
+                                        <i class="bi bi-arrow-clockwise"></i>
+                                    </button>
+                                <% } else { %>
+                                    <button data-bs-toggle="modal" data-bs-target="#changeStatModal" class="empStatBtn btn <%= employee.empStat === 'Active' ? 'btn-success' : 'btn-danger' %> custom-tooltip-top" data-tooltip="<%= employee.empStat %>">
+                                        <i class="<%= employee.empStat === 'Active' ? 'bi bi-check-circle-fill' : 'bi bi-x-circle' %>"></i>
+                                    </button>
+                                <% } %>
+                            </td>
+                            <td>
+                                <button data-bs-toggle="modal" data-bs-target="#editEmpModal" class="edit-emp-btn btn btn-warning" data-doc="<%= employee.id %>">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+                                <button data-bs-toggle="modal" data-bs-target="#deleteEmpModal" class="del-emp-btn btn btn-danger" onclick="gotoDeleteModal('<%= employee.id %>')">
+                                    <i class="bi bi-trash-fill"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="page-info "></div>
+</div>

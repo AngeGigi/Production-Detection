@@ -1,0 +1,107 @@
+<div id="regCompanyModal" class="modal fade" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Register Company</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="errorMessages" class="d-none alert alert-danger" role="alert"></div>
+                <form id="registerCompanyForm" action="" method="POST">
+                    <div class="row g-4">
+                        <!-- Left Column -->
+                        <div class="col-12 col-md-6">
+                            <input type="hidden" id="editCompCode" name="compCode" />
+                            <div class="mb-3">
+                                <label for="compUser" class="form-label">Username *</label>
+                                <input type="text" id="compUser" name="compUser" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="compName" class="form-label">Company Name *</label>
+                                <input type="text" id="compName" name="compName" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="compEmail" class="form-label">Email *</label>
+                                <input type="email" id="compEmail" name="compEmail" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="compAddress" class="form-label">Company Address *</label>
+                                <input type="text" id="compAddress" name="compAddress" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="compCountEmp" class="form-label">No. of Employees *</label>
+                                <input type="number" id="compCountEmp" name="compCountEmp" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="compNum" class="form-label">Company Tel No. *</label>
+                                <input type="text" id="compNum" name="compNum" class="form-control" required>
+                            </div>
+                        </div>
+                        <!-- Right Column -->
+                        <div class="col-12 col-md-6">
+                            <div class="mb-3">
+                                <label for="subType" class="form-label">Subscription Type *</label>
+                                <select id="subType" name="subType" class="form-select">
+                                    <option value="Trial">Trial</option>
+                                    <option value="Premium">Premium</option>
+                                    <option value="Pro">Pro</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="compExp" class="form-label">Expiration Days *</label>
+                                <input type="number" id="compExp" name="compExp" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="compVer" class="form-label">Version *</label>
+                                <div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="compVer" value="All" id="allVersion">
+                                        <label class="form-check-label" for="allVersion">All</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="compVer" value="Home" id="homeVersion">
+                                        <label class="form-check-label" for="homeVersion">Home</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="compVer" value="Office" id="officeVersion">
+                                        <label class="form-check-label" for="officeVersion">Office</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="compFeat" class="form-label">Features *</label>
+                                <div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="compFeat" value="All" id="allFeatures">
+                                        <label class="form-check-label" for="allFeatures">All</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="compFeat" value="GPS" id="gpsFeature">
+                                        <label class="form-check-label" for="gpsFeature">GPS</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="compFeat" value="Extended user" id="extendedUserFeature">
+                                        <label class="form-check-label" for="extendedUserFeature">Extended User</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="compFeat" value="API Log" id="apiLogFeature">
+                                        <label class="form-check-label" for="apiLogFeature">API Log</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="compFeat" value="Location Tracking" id="locationTrackingFeature">
+                                        <label class="form-check-label" for="locationTrackingFeature">Location Tracking</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="save-edit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

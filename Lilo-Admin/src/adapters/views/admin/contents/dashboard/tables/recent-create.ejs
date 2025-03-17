@@ -1,0 +1,22 @@
+<div class="row w-100">
+    <div class="card bg-white border-0 shadow-sm w-100">
+        <div class="card-body">
+            <h4 class="text-secondary">Recently Created Users</h4>
+            <ul class="list-unstyled mt-3">
+                <% recentUsers.forEach(user=> { %>
+                    <li class="d-flex align-items-center mb-2">
+                        <span
+                            class="user-icon d-flex justify-content-center align-items-center rounded-circle bg-success text-white me-2 circle-40">
+                            <%= user.fname[0] %>
+                                <%= user.lname[0] %>
+                        </span>
+                        <strong>
+                            <%= user.fname %>
+                                <%= user.lname %>
+                        </strong>
+                    </li>
+                    <% }) %>
+            </ul>
+        </div>
+    </div>
+</div>

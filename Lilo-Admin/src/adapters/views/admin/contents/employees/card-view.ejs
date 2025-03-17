@@ -1,0 +1,35 @@
+<div class="px-1 py-3"  style="height: 100%; width: 100%;">
+    <div id="employees-card-view" class="row g-3 mt-1 mx-2 mb-3 row-cols-1 row-cols-md-3 row-cols-lg-4 pb-3"></div>
+</div>
+
+<div class="d-none" style="visibility: hidden; width: 20px;">
+    <table id="employeesTable" class="display">
+        <thead>
+            <tr>
+                <th class="d-none">ID</th>
+                <th>Employee Name</th>
+                <th>Employee ID</th>
+                <th>Department</th>
+                <th>Email</th>
+                <th>Employee Status</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% employees.forEach(function(employee) { %>
+                <tr>
+                    <td class="d-none"><%= employee.id %></td>
+                    <td><%= employee.fname %> <%= employee.lname %></td>
+                    <td><%= employee.empID %></td>
+                    <td><%= employee.dept %></td>
+                    <td><%= employee.email %></td>
+                    <td><%= employee.empStat %></td>
+                    <td><%= employee.empPic %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+
+<script src="/scripts/admin/employees/datatables/emp-card.js"></script>
+

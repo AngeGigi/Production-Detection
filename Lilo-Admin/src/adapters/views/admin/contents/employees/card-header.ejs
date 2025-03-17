@@ -1,0 +1,28 @@
+<!-- Card Filters Section -->
+<div class="card-filters d-flex justify-content-start align-items-center gap-5">
+    <!-- Cards per Group Section -->
+    <div id="employeesCardLimit" class="d-flex">
+    </div>
+
+    <!-- Filter Cards Dropdown -->
+    <div class="filter-cards d-flex" id="filterCard">
+        <label for="cardSortCriteria" class="me-2 d-flex align-items-center">Sort by:</label>
+        <select
+            id="empCardSortCriteria"
+            class="form-select w-auto"
+        >
+            <option value="select" selected>No Filter</option>
+            <option value="empID">Employee ID</option>
+            <option value="fullName">Full Name</option>
+            <option value="dept">Department</option>
+            <option value="email">Email</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+        </select>
+    </div>
+</div>
+
+<!-- Export Button -->
+<button id="exportEmpCardCsvBtn" class="btn btn-primary">
+    <i class="fa-solid fa-file-arrow-down"></i> Employee List
+</button>

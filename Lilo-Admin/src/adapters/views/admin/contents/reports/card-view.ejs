@@ -1,0 +1,41 @@
+<div class="px-1 py-3"  style="height: 100%; width: 100%;">
+    <div id="dtrs-card-view" class="overflow-auto h-100 row g-4 py-3 ps-2 pe-3 row-cols-6 row-cols-md-4 row-cols-lg-3"></div>
+    <div id="notif-info-area" colspan="100%" class="p-3 text-center"></div>
+</div>
+
+<div class="d-none" style="visibility: hidden; width: 20px;">
+    <table id="dtrsTable" class="display">
+        <thead>
+            <tr>
+                <th class="d-none">ID</th>
+                <th>Activity</th>
+                <th class="d-none">Image</th>
+                <th>Time</th>
+                <th>Employee ID</th>
+                <th>Full Name</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% records.forEach(function(record) { %>
+                <tr>
+                    <td class="d-none"><%= record.id %></td>
+                    <td><%= record.act %></td>
+                    <td class="d-none"><%= record.img ? 'data:image/jpeg;base64,' + record.img : '/path/to/default_image.jpg' %></td>
+                    <td><%= record.time || 'Not Checked In' %></td>
+                    <td><%= record.employee ? record.employee.empID : record.empID %></td>
+                    <td><%= record.employee ? [record.employee.fname, record.employee.lname].filter(Boolean).join(' ').trim()
+                        : [record.fname, record.lname].filter(Boolean).join(' ').trim() %></td>
+                    <td><%= record.lat %></td>
+                    <td><%= record.long %></td>
+                    <td><%= record.address || 'No Address Provided' %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+
+<script src="/scripts/admin/reports/dtrs-card.js"></script>
+<script src="/scripts/admin/reports/datatables/dtrs-card.js"></script>
