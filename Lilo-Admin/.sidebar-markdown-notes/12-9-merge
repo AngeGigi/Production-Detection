@@ -1,0 +1,27 @@
+# Merge Clean Archi
+
+double check the file links to have `/` in the beginning
+
+> **Admin Login**
+> - [x] Bootstrap CSS
+> - [x] Error Message
+- edit adminController renders
+- add admin.css
+- add login.js
+
+<br>
+
+> **Main Layout**
+> - [x] layout.ejs
+- add whole partials folder
+- add whole styles folder
+- add sidebar.js
+- add header.js
+
+<br>
+
+> **Dashboard**
+> - [x] show complete dashboard
+> - [ ] add daily login with time
+> - [ ] add weekly combined
+- add in adminRepository
