@@ -10,15 +10,16 @@
         <span>Employees</span>
     </a>
 </li>
+<!-- REPORTS-->
 <li class="nav-item" role="presentation">
-    <a href="#" class="nav-link d-flex align-items-center toggle-submenu <%= (title === 'DTRS' || title === 'Rejected Logs' || title === 'Start of Day' || title === 'End of Day') ? 'active' : '' %>
-        " data-bs-target="#submenuReports" role="tab">
+    <a href="#" class="nav-link d-flex align-items-center toggle-submenu <%= (title === 'DTRS' || title === 'Rejected Logs' || title === 'Start of Day' || title === 'End of Day') ? 'active' : '' %>" 
+        data-bs-toggle="collapse" data-bs-target="#submenuReports" role="tab">
         <i class="bi bi-bar-chart" style="font-size: 20px;"></i>
         <span class="ms-2">Reports</span>
         <i class="submenu-arrow fas fa-chevron-down ms-auto"></i>
     </a>
     <!-- Submenu -->
-    <ul id="submenuReports" class="submenu">
+    <ul id="submenuReports" class="submenu collapse">
         <li>
             <a href="/reports/dtrs" class="nav-link ms-4 <%= (title === 'DTRS') ? 'active' : '' %>">
                 <span class="text">DTRS Logs</span>
@@ -35,8 +36,41 @@
             </a>
         </li>
         <li>
-            <a href="/reports/end-of-day" class="nav-link ms-4 <%= (title === 'End of Day') ? 'active' : '' %>" >
+            <a href="/reports/end-of-day" class="nav-link ms-4 <%= (title === 'End of Day') ? 'active' : '' %>">
                 <span class="text">End of Day</span>
+            </a>
+        </li>
+    </ul>
+</li>
+
+<!-- PRODUCTION DETECTION -->
+<li class="nav-item" role="presentation">
+    <a href="#" class="nav-link d-flex align-items-center toggle-submenu <%= (title === 'Production Detection' || title === 'Logs' || title === 'Add User' || title === 'Table') ? 'active' : '' %>" 
+        data-bs-toggle="collapse" data-bs-target="#submenuProductionDetection" role="tab">
+        <i class="bi bi-gear-fill" style="font-size: 20px;"></i>
+        <span class="ms-2">Production Detection</span>
+        <i class="submenu-arrow fas fa-chevron-down ms-auto"></i>
+    </a>
+    <!-- Submenu -->
+    <ul id="submenuProductionDetection" class="submenu collapse">
+        <li>
+            <a href="/reports/prod-list" class="nav-link ms-4 <%= (title === 'Production Detection') ? 'active' : '' %>">
+                <span class="text">Reports</span>
+            </a>
+        </li>
+        <li>
+            <a href="/reports/rejected-logs" class="nav-link ms-4 <%= (title === 'Logs') ? 'active' : '' %>">
+                <span class="text">Logs</span>
+            </a>
+        </li>
+        <li>
+            <a href="/reports/start-of-day" id="start-of-day-button" class="nav-link ms-4 <%= (title === 'Add User') ? 'active' : '' %>">
+                <span class="text">Add Users</span>
+            </a>
+        </li>
+        <li>
+            <a href="/reports/end-of-day" class="nav-link ms-4 <%= (title === 'Table') ? 'active' : '' %>">
+                <span class="text">Table</span>
             </a>
         </li>
     </ul>
