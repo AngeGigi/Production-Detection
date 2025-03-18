@@ -281,12 +281,12 @@ function exportToCSV() {
     const headers = [
         "No.", // No.
         "empID", // Employee ID
-        "Department", // Department
+        "Departamento", // Department
         "Full Name", // Full Name
         "Time", // Time
         "Date", // Date
-        "Activity", // Activity
-        "Image", // Image presence indicator
+        "Actividad", // Activity
+        "Imahe", // Image presence indicator
         "Address", // Address
         "Latitude", // Changed from Location to Latitude
         "Longitude", // Changed from Created At to Longitude
